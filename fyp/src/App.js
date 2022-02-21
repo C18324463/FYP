@@ -1,6 +1,6 @@
-import "./App.css";
-import React, {useState} from "react";
-import SideNav from "./SideNav";
+import './App.css';
+import React, {useState} from 'react';
+import SideNav from './SideNav';
 
 
 function App(props, state) {
@@ -15,7 +15,7 @@ function App(props, state) {
   return (
     <div className="container">
       <button onClick={openSidenav}>Open</button>
-      <SideNav name="Jonathan" width={wid} closeNav={closeSidenav}/>
+      <SideNav name='Bar' width={wid} closeNav={closeSidenav}/>
     </div>
   );
 }
