@@ -14,7 +14,7 @@ function App(props, state) {
 
   return (
     <div className="container">
-      <button onClick={openSidenav}>&#9776; Open</button>
+      <button className='openBtn' onClick={openSidenav}>&#9776; Open</button>
       <SideNav name='Bar' width={wid} closeNav={closeSidenav}/>
     </div>
   );

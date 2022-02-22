@@ -42,3 +42,7 @@
   background-color: white;
   align-items: center;
 }
+
+.openBtn {
+  width: 80px;
+}
