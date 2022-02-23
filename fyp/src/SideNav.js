@@ -17,10 +17,10 @@ const SideNav = (props) => {
             <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
          </div>
          {/*<List input={inputText} />*/}
-         <a href="#section">Home</a>
-         <a href="#section">F1 Live</a>
-         <a href="#section">Standings</a>
-         <a href="#section">Statistics</a>
+         <a href="/Home.js">Home</a>
+         <a href="/F1Live.js">F1 Live</a>
+         <a href="/Standings.js">Standings</a>
+         <a href="/Statistics.js">Statistics</a>
       </div>
    );
 };
