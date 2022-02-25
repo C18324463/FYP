@@ -1,12 +1,29 @@
 import React, {useState} from 'react';
 import TextField from "@mui/material/TextField";
-import logo from "./img/Untitled.png"
+import logo from "./img/logo512.png";
 
 const SideNav = (props) => {
-   const [inputText, setInputText] = useState("");
+   /*const [inputText, setInputText] = useState("");
    let inputHandler = (e) => {
      var lowerCase = e.target.value.toLowerCase();
      setInputText(lowerCase);
+   };*/
+
+   function Standings(){
+      console.log("hi");
+      window.location = "/standings"
+   };
+   function Home(){
+      console.log("hi");
+      window.location = "/"
+   };
+   function Statistics(){
+      console.log("hi");
+      window.location = "/statistics"
+   };
+   function F1Live(){
+      console.log("hi");
+      window.location = "/f1-live"
    };
 
    return (
@@ -17,12 +34,16 @@ const SideNav = (props) => {
             <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
          </div>
          {/*<List input={inputText} />*/}
-         <a href="/Home.js">Home</a>
-         <a href="/F1Live.js">F1 Live</a>
-         <a href="/Standings.js">Standings</a>
-         <a href="/Statistics.js">Statistics</a>
+         <a href="#" onClick={Home}>Home</a>
+         <a href="#" onClick={F1Live}>F1 Live</a>
+         <a href="#" onClick={Standings}>Standings</a>
+         <a href="#" onClick={Statistics}>Statistics</a>
       </div>
    );
 };
 
+
 export default SideNav;
+
+
+/*onClick={Standings()}*/
