@@ -44,6 +44,3 @@ const SideNav = (props) => {
 
 
 export default SideNav;
-
-
-/*onClick={Standings()}*/

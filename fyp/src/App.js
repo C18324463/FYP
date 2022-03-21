@@ -8,7 +8,7 @@ import Home from "./Home";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 
-function App(props, state) {
+export default function App(props, state) {
   const [wid, setWid] = useState('0%');
   const openSidenav = ( ) => {
     setWid('25%')
@@ -32,5 +32,3 @@ function App(props, state) {
       </div>
   );
 }
-
-export default App;
