@@ -1,8 +1,9 @@
 import './Standings.css';
 import React, {useEffect, useState} from 'react';
+import {Table} from 'react-bootstrap';
 
 
-function Standings(){
+function Standings(props){
   const [results, setResults] = useState([]);
   var requestOptions = {
     method: 'GET',
@@ -20,13 +21,20 @@ function Standings(){
     fetchData();
   }, []);
 
+  function openConstructors() {
+    console.log("const");
+    window.location = "/standings/constructors_champ"
+  }
+
   console.log(results);
   console.log(results.MRData?.StandingsTable?.StandingsLists[0].DriverStandings[0]);
 
   return(
     <div>
+      <button id='constructors' onClick={() => openConstructors()}>Constructors</button>
       <br></br>
-      <table id='table_standings' >
+      <br></br>
+      <Table id='table_standings'>
         <thead>
           <tr>
             <th>Position</th>
@@ -36,11 +44,11 @@ function Standings(){
             <th>Points</th>
           </tr>
         </thead>
-        <tbody className='trtable'>
+        <tbody>
             {results.MRData?.StandingsTable?.StandingsLists[0].DriverStandings.map(element => {
               return (
                 <tr>
-                  <td key={element.Driver.driverId} className='trtable'>
+                  <td key={element.Driver.driverId}>
                     {element.position}
                   </td>
                   <td key={element.Driver.dateOfBirth}>
@@ -61,7 +69,9 @@ function Standings(){
               )
             }  )}
         </tbody>
-      </table>
+      </Table>
+      <br></br>
+      <br></br>
     </div>
   )
 }

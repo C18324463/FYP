@@ -5,6 +5,7 @@ import Standings from "./Standings";
 import F1Live from "./F1Live";
 import Statistics from "./Statistics";
 import Home from "./Home";
+import Constructors from "./Consctructors";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 
@@ -26,7 +27,8 @@ export default function App(props, state) {
             <Route path="/" element={<Home/>}/>
             <Route path="/f1-live" element={<F1Live/>}/>
             <Route path="/statistics" element={<Statistics/>}/>
-            <Route path="/standings" element={<Standings/>}/>
+            <Route path="/standings/drivers_champ" element={<Standings/>}/>
+            <Route path="/standings/constructors_champ" element={<Constructors/>}/>
         </Routes>
         </BrowserRouter>
       </div>

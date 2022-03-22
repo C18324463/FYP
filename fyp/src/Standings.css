@@ -51,4 +51,17 @@
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+}
+
+th, td {
+  padding: 10px;
+}
+
+#constructors, #drivers{
+  width: 155px;
+  font-size: 25px;
+  margin-left: 680px;
 }

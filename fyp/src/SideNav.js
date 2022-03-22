@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import TextField from "@mui/material/TextField";
 import logo from "./img/logo512.png";
+import './Standings.css';
 
 const SideNav = (props) => {
    /*const [inputText, setInputText] = useState("");
@@ -9,21 +10,21 @@ const SideNav = (props) => {
      setInputText(lowerCase);
    };*/
 
-   function Standings(){
-      console.log("hi");
-      window.location = "/standings"
-   };
    function Home(){
       console.log("hi");
       window.location = "/"
    };
-   function Statistics(){
-      console.log("hi");
-      window.location = "/statistics"
-   };
    function F1Live(){
       console.log("hi");
       window.location = "/f1-live"
+   };
+   function Standings(){
+      console.log("hi");
+      window.location = "/standings/drivers_champ"
+   };
+   function Statistics(){
+      console.log("hi");
+      window.location = "/statistics"
    };
 
    return (
