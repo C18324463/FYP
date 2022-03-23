@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import TextField from "@mui/material/TextField";
 import logo from "./img/logo512.png";
-import './Standings.css';
 
 const SideNav = (props) => {
    /*const [inputText, setInputText] = useState("");
@@ -24,7 +23,7 @@ const SideNav = (props) => {
    };
    function Statistics(){
       console.log("hi");
-      window.location = "/statistics"
+      window.location = "/statistics/info_drivers"
    };
 
    return (

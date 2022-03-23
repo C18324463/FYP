@@ -1,4 +1,3 @@
-import './Standings.css';
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
 
@@ -30,32 +29,31 @@ function Constructors() {
 
     return(
         <div>
-          <button id='drivers' onClick={() => openDrivers()}>Drivers</button>
+          <button id='drivers' onClick={() => openDrivers()} style={{width: "155px", display: "block", fontSize: "25px", margin: "auto"}}>Drivers</button>
           <br></br>
-          <br></br>
-          <Table id='table_standings'>
+          <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
             <thead>
               <tr>
-                <th>Position</th>
-                <th>Constructor</th>
-                <th>Points</th>
-                <th>Wins</th>
+                <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Position</th>
+                <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Constructor</th>
+                <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Points</th>
+                <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Wins</th>
               </tr>
             </thead>
             <tbody>
                 {results.MRData?.StandingsTable?.StandingsLists[0].ConstructorStandings.map(element => {
                   return (
                     <tr>
-                      <td key={element.position}>
+                      <td key={element.position} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                         {element.position}
                       </td>
-                      <td key={element.Constructor.name}>
+                      <td key={element.Constructor.name} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                         {element.Constructor.name}
                       </td>
-                      <td key={element.constructorId}>
+                      <td key={element.constructorId} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                         {element.points}
                       </td>
-                      <td key={element.positionText}>
+                      <td key={element.positionText} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                         {element.wins}
                       </td>
                     </tr>

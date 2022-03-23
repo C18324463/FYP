@@ -1,9 +1,7 @@
-import './Standings.css';
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
 
-
-function Standings(props){
+function Standings(){
   const [results, setResults] = useState([]);
   var requestOptions = {
     method: 'GET',
@@ -22,7 +20,6 @@ function Standings(props){
   }, []);
 
   function openConstructors() {
-    console.log("const");
     window.location = "/standings/constructors_champ"
   }
 
@@ -31,38 +28,37 @@ function Standings(props){
 
   return(
     <div>
-      <button id='constructors' onClick={() => openConstructors()}>Constructors</button>
+      <button id='constructors' onClick={() => openConstructors()} style={{width: "155px", display: "block", fontSize: "25px", margin: "auto"}}>Constructors</button>
       <br></br>
-      <br></br>
-      <Table id='table_standings'>
+      <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
         <thead>
           <tr>
-            <th>Position</th>
-            <th>Driver</th>
-            <th>Number</th>
-            <th>Team</th>
-            <th>Points</th>
+            <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Position</th>
+            <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Driver</th>
+            <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Number</th>
+            <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Team</th>
+            <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Points</th>
           </tr>
         </thead>
         <tbody>
             {results.MRData?.StandingsTable?.StandingsLists[0].DriverStandings.map(element => {
               return (
                 <tr>
-                  <td key={element.Driver.driverId}>
+                  <td key={element.Driver.driverId} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                     {element.position}
                   </td>
-                  <td key={element.Driver.dateOfBirth}>
+                  <td key={element.Driver.dateOfBirth} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                     {element.Driver.givenName}
                     {" "}
                     {element.Driver.familyName}
                   </td>
-                  <td key={element.Driver.permanentNumber}>
+                  <td key={element.Driver.permanentNumber} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                     {element.Driver.permanentNumber}
                   </td>
-                  <td key={element.positionText}>
+                  <td key={element.positionText} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                     {element.Constructors[0].name}
                   </td>
-                  <td key={element.Driver.code}>
+                  <td key={element.Driver.code} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                     {element.points}
                   </td>
                 </tr>

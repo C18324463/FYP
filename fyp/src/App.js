@@ -3,7 +3,9 @@ import React, {useState} from 'react';
 import SideNav from './SideNav';
 import Standings from "./Standings";
 import F1Live from "./F1Live";
-import Statistics from "./Statistics";
+import Info_Drivers from "./Statistics";
+import Info_Constructors from "./Info_Constructors";
+import Info_Tracks from "./Info_Tracks";
 import Home from "./Home";
 import Constructors from "./Consctructors";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
@@ -26,7 +28,9 @@ export default function App(props, state) {
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/f1-live" element={<F1Live/>}/>
-            <Route path="/statistics" element={<Statistics/>}/>
+            <Route path="/statistics/info_drivers" element={<Info_Drivers/>}/>
+            <Route path="/statistics/info_constructors" element={<Info_Constructors/>}/>
+            <Route path="/statistics/info_tracks" element={<Info_Tracks/>}/>
             <Route path="/standings/drivers_champ" element={<Standings/>}/>
             <Route path="/standings/constructors_champ" element={<Constructors/>}/>
         </Routes>

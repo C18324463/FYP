@@ -1,4 +1,3 @@
-import React, {useEffect, useState} from 'react';
 import Albon from "./albon.jpg";
 import Alonso from "./alonso.jpg";
 import Bottas from "./bottas.jpg";
