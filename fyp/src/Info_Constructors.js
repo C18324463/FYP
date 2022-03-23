@@ -58,8 +58,7 @@ function Info_Constructors() {
                                 <Card.Img className='img' variant="top" src={team_images[counter]} style={{height: "100%", width: "100%", borderBottom: "1px solid black", borderCollapse: "collapse"}}/>
                                 <Card.Body>
                                     <Card.Title key={element.constructorId}>
-                                        Team:
-                                        {" "}
+                                        Team:{" "}
                                         {element.name}
                                     </Card.Title>
                                     <Card.Text>
