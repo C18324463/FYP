@@ -2,16 +2,36 @@ import './App.css';
 import React, {useState} from 'react';
 import SideNav from './SideNav';
 import Standings from "./Standings";
+import Schedule from "./Schedule";
 import F1Live from "./F1Live";
 import Info_Drivers from "./Statistics";
 import Info_Constructors from "./Info_Constructors";
 import Info_Tracks from "./Info_Tracks";
 import Home from "./Home";
 import Constructors from "./Consctructors";
+import Bahrain from "./Bahrain";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Firebase from "firebase/app";
+import "firebase/database";
+import config from "./Firebase"
 
 
 export default function App(props, state) {
+  /*this.state = {
+    isConnected: false,
+    database: null,
+    raceName:'',
+    circuit:'',
+    circuitName:''
+  }
+
+  async () => {
+
+      this.setState({
+        database: Firebase.database()
+      })
+  } */
+
   const [wid, setWid] = useState('0%');
   const openSidenav = ( ) => {
     setWid('25%')
@@ -27,12 +47,14 @@ export default function App(props, state) {
         <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/schedule" element={<Schedule/>}/>
             <Route path="/f1-live" element={<F1Live/>}/>
             <Route path="/statistics/info_drivers" element={<Info_Drivers/>}/>
             <Route path="/statistics/info_constructors" element={<Info_Constructors/>}/>
             <Route path="/statistics/info_tracks" element={<Info_Tracks/>}/>
             <Route path="/standings/drivers_champ" element={<Standings/>}/>
             <Route path="/standings/constructors_champ" element={<Constructors/>}/>
+            <Route path="/schedule/Bahrain" element={<Bahrain/>}/>
         </Routes>
         </BrowserRouter>
       </div>

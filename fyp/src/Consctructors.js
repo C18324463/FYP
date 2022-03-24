@@ -10,7 +10,7 @@ function Constructors() {
   
     useEffect(() => {
       const fetchData = async () => {
-        await fetch(`http://ergast.com/api/f1/2022/1/constructorStandings.json`, requestOptions)
+        await fetch(`http://ergast.com/api/f1/current/constructorStandings.json`, requestOptions)
         .then(response => response.text())
         .then(response2 => JSON.parse(response2))
         .then(result => setResults(result))
@@ -44,7 +44,7 @@ function Constructors() {
                 {results.MRData?.StandingsTable?.StandingsLists[0].ConstructorStandings.map(element => {
                   return (
                     <tr>
-                      <td key={element.position} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      <td key={element.points} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                         {element.position}
                       </td>
                       <td key={element.Constructor.name} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>

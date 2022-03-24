@@ -13,6 +13,10 @@ const SideNav = (props) => {
       console.log("hi");
       window.location = "/"
    };
+   function Schedule(){
+      console.log("hi");
+      window.location = "/schedule"
+   };
    function F1Live(){
       console.log("hi");
       window.location = "/f1-live"
@@ -21,7 +25,7 @@ const SideNav = (props) => {
       console.log("hi");
       window.location = "/standings/drivers_champ"
    };
-   function Statistics(){
+   function Information(){
       console.log("hi");
       window.location = "/statistics/info_drivers"
    };
@@ -35,9 +39,10 @@ const SideNav = (props) => {
          </div>
          {/*<List input={inputText} />*/}
          <a href="#" onClick={Home}>Home</a>
+         <a href="#" onClick={Schedule}>Schedule</a>
          <a href="#" onClick={F1Live}>F1 Live</a>
          <a href="#" onClick={Standings}>Standings</a>
-         <a href="#" onClick={Statistics}>Statistics</a>
+         <a href="#" onClick={Information}>Information</a>
       </div>
    );
 };

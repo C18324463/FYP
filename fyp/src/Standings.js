@@ -10,7 +10,7 @@ function Standings(){
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetch(`http://ergast.com/api/f1/2022/1/driverStandings.json`, requestOptions)
+      await fetch(`http://ergast.com/api/f1/current/driverStandings.json`, requestOptions)
       .then(response => response.text())
       .then(response2 => JSON.parse(response2))
       .then(result => setResults(result))
