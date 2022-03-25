@@ -54,7 +54,7 @@ export default function App(props, state) {
             <Route path="/statistics/info_tracks" element={<Info_Tracks/>}/>
             <Route path="/standings/drivers_champ" element={<Standings/>}/>
             <Route path="/standings/constructors_champ" element={<Constructors/>}/>
-            <Route path="/schedule/Bahrain" element={<Bahrain/>}/>
+            <Route path="/schedule/:circuitId" element={<Bahrain/>}/>
         </Routes>
         </BrowserRouter>
       </div>

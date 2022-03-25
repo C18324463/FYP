@@ -1,3 +1,2 @@
-let globalNum = {value: 0};
+export let globalNum = {value: 0};
 
-export default globalNum;
