@@ -1,25 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {Table} from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import db from "./Firebase"
-import {globalNum} from './Schedule';
 
-function Bahrain(){
+function RaceDetails(){
     const {circuitId} = useParams();
-    console.log(circuitId);
     const ref = db.ref("MRData/RaceTable/Races");
-    ref.on('value', snapshot => {
+    /*ref.on('value', snapshot => {
         let list = snapshot.val();
-        console.log("This is global num: " + globalNum.value);
-        list.forEach((element, index) => {
-            console.log(index);
+        /*list.forEach((element, index) => {
             if (index === globalNum.value){
-                console.log(list[index]);
             }
         });
-    });
+    });*/
 
-    const [raceData, setRaceData] = useState();
     const [schedule, setSchedule] = useState([]);
     var requestOptions = {
       method: 'GET',
@@ -37,18 +30,6 @@ function Bahrain(){
       fetchData();
     }, []);
 
-    /*useEffect(() => {
-        ref.on("value", (snapshot)=>{
-            const racedb = snapshot.val();
-            const racearray = [];
-            for(let id in racedb){
-                racearray.push({id, ...racedb[id]});
-            }
-            setRaceData(racearray)
-
-        });
-    })*/
-
     console.log(schedule);
     console.log(schedule.MRData?.RaceTable?.Races[0]);
 
@@ -56,13 +37,12 @@ function Bahrain(){
         <div>
             <br></br>
             {schedule.MRData?.RaceTable?.Races.map(function(element) {
-                //if(element.circuitId == circuitId)
                 return (
                     <table>
                         <thead>
                             <tr>
                                 <th key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                    {element.circuitId}
+                                    {element.raceName}
                                     {" "}
                                     at the
                                     {" "}
@@ -135,4 +115,4 @@ function Bahrain(){
 
 }
 
-export default Bahrain;
+export default RaceDetails;

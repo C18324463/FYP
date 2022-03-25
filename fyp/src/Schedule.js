@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
-import {globalNum} from './global';
 import {Link} from 'react-router-dom';
 
 export default function Schedule(){
     const [schedule, setSchedule] = useState([]);
-    const [racenum, setRaceNum] = useState();
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -24,17 +22,7 @@ export default function Schedule(){
 
     console.log(schedule);
     console.log(schedule.MRData?.RaceTable?.Races[0]);
-
     let counter = -1;
-
-    let test = 0;
-    function Info(circuit){
-        test = Number(circuit);
-        globalNum.value = 0;
-        globalNum.value = test - 1;
-        console.log(globalNum.value);
-        test = test - 1;
-    };
 
     return(
         <div>
@@ -52,7 +40,7 @@ export default function Schedule(){
                     counter = counter + 1;
                     return (
                         <tr>
-                            <td onClick={() => Info(element.round)} key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                            <td key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                                 <Link to={{pathname:`/schedule/${index+1}`, state:{circuitId:index+1}}}>{element.raceName}</Link>
                             </td>
                             <td key={element.date} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
@@ -72,5 +60,3 @@ export default function Schedule(){
         </div>
     )
 }
-
-export {globalNum};

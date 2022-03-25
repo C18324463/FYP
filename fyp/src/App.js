@@ -9,7 +9,7 @@ import Info_Constructors from "./Info_Constructors";
 import Info_Tracks from "./Info_Tracks";
 import Home from "./Home";
 import Constructors from "./Consctructors";
-import Bahrain from "./Bahrain";
+import RaceDetails from "./RaceDetails";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Firebase from "firebase/app";
 import "firebase/database";
@@ -17,21 +17,7 @@ import config from "./Firebase"
 
 
 export default function App(props, state) {
-  /*this.state = {
-    isConnected: false,
-    database: null,
-    raceName:'',
-    circuit:'',
-    circuitName:''
-  }
-
-  async () => {
-
-      this.setState({
-        database: Firebase.database()
-      })
-  } */
-
+  
   const [wid, setWid] = useState('0%');
   const openSidenav = ( ) => {
     setWid('25%')
@@ -54,7 +40,7 @@ export default function App(props, state) {
             <Route path="/statistics/info_tracks" element={<Info_Tracks/>}/>
             <Route path="/standings/drivers_champ" element={<Standings/>}/>
             <Route path="/standings/constructors_champ" element={<Constructors/>}/>
-            <Route path="/schedule/:circuitId" element={<Bahrain/>}/>
+            <Route path="/schedule/:circuitId" element={<RaceDetails/>}/>
         </Routes>
         </BrowserRouter>
       </div>
