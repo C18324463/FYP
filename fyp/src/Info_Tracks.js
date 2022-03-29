@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './Info_Tracks.css';
 import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import track_images from "./img/track_images";
@@ -41,10 +42,10 @@ function Info_Tracks() {
         <div>
             <Row className='justify-content-center'>
                 <Col className='col-sm-2 text-center'>
-                    <button id='info_drivers' onClick={() => openDrivers()} style={{ width: "155px", margin: "2px", fontSize: "25px"}}>Drivers</button>
+                    <button className='info_drivers' onClick={() => openDrivers()}>Drivers</button>
                 </Col>
                 <Col className='col-sm-2 text-center'>
-                    <button id='info_constructors' onClick={() => openConstructors()} style={{ width: "155px", margin: "2px", fontSize: "25px"}}>Constructors</button>
+                    <button className='info_constructors' onClick={() => openConstructors()}>Constructors</button>
                 </Col>
             </Row>
             <br></br>

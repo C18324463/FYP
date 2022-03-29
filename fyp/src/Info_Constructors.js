@@ -41,10 +41,10 @@ function Info_Constructors() {
         <div>
             <Row className='justify-content-center'>
                 <Col className='col-sm-2 text-center'>
-                    <button id='info_drivers' onClick={() => openDrivers()} style={{ width: "155px", margin: "2px", fontSize: "25px"}}>Drivers</button>
+                    <button className='info_drivers' onClick={() => openDrivers()}>Drivers</button>
                 </Col>
                 <Col className='col-sm-2 text-center'>
-                    <button id='info_tracks' onClick={() => openTracks()} style={{ width: "155px", margin: "2px", fontSize: "25px"}}>Tracks</button>
+                    <button className='info_tracks' onClick={() => openTracks()}>Tracks</button>
                 </Col>
             </Row>
             <br></br>

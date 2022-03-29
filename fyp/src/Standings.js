@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './Standings.css';
 import {Table} from 'react-bootstrap';
 
 function Standings(){
@@ -28,7 +29,7 @@ function Standings(){
 
   return(
     <div>
-      <button id='constructors' onClick={() => openConstructors()} style={{width: "155px", display: "block", fontSize: "25px", margin: "auto"}}>Constructors</button>
+      <button className='constructors' onClick={() => openConstructors()}>Constructors</button>
       <br></br>
       <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
         <thead>

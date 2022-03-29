@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './Constructors.css';
 import {Table} from 'react-bootstrap';
 
 function Constructors() {
@@ -29,7 +30,7 @@ function Constructors() {
 
     return(
         <div>
-          <button id='drivers' onClick={() => openDrivers()} style={{width: "155px", display: "block", fontSize: "25px", margin: "auto"}}>Drivers</button>
+          <button className='drivers' onClick={() => openDrivers()}>Drivers</button>
           <br></br>
           <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
             <thead>

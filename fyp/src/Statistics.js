@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import './Stats.css';
 import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import driver_images from "./img/driver_images";
@@ -41,10 +42,10 @@ function Statistics(){
         <div>
             <Row className='justify-content-center'>
                 <Col className='col-sm-2 text-center'>
-                    <button id='info_constructors' onClick={() => openConstructors()} style={{ width: "155px", margin: "2px", fontSize: "25px"}}>Constructors</button>
+                    <button className='info_constructors' onClick={() => openConstructors()}>Constructors</button>
                 </Col>
                 <Col className='col-sm-2 text-center'>
-                    <button id='info_tracks' onClick={() => openTracks()} style={{ width: "155px", margin: "2px", fontSize: "25px"}}>Tracks</button>
+                    <button className='info_tracks' onClick={() => openTracks()}>Tracks</button>
                 </Col>
             </Row>
             <br></br>
@@ -54,7 +55,7 @@ function Statistics(){
                     counter = counter + 1;
                     return (
                         <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
-                            <Card className='card' style={{ width: '20rem', height: "100%", border: "1px solid black", marginLeft: "8%", borderCollapse: "collapse"}}>
+                            <Card className='card' border="danger">
                                 <Card.Img className='img' variant="top" style={{height: "100%", width: "100%", borderBottom: "1px solid black", borderCollapse: "collapse"}} src={driver_images[counter]}/>
                                 <Card.Body>
                                     <Card.Title key={element.driverId}>
