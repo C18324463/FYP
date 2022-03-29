@@ -50,13 +50,13 @@ function Statistics(){
             </Row>
             <br></br>
             <div style={{height: "1000px"}}>
-                <Row>
+            <Row>
                 {info.MRData?.DriverTable?.Drivers.map(element => {
                     counter = counter + 1;
                     return (
-                        <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
+                        <Col className='col-sm-3' style={{marginBottom: "20px"}}>
                             <Card className='card' border="danger">
-                                <Card.Img className='img' variant="top" style={{height: "100%", width: "100%", borderBottom: "1px solid black", borderCollapse: "collapse"}} src={driver_images[counter]}/>
+                                <Card.Img className='img' variant="top" src={driver_images[counter]}/>
                                 <Card.Body>
                                     <Card.Title key={element.driverId}>
                                         Name:
@@ -80,7 +80,7 @@ function Statistics(){
                         </Col>
                     )
                 }  )}
-                </Row>
+            </Row>
             </div>
         </div>
     )

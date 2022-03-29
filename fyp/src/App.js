@@ -11,9 +11,7 @@ import Home from "./Home";
 import Constructors from "./Consctructors";
 import RaceDetails from "./RaceDetails";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Firebase from "firebase/app";
 import "firebase/database";
-import config from "./Firebase"
 
 
 export default function App(props, state) {
