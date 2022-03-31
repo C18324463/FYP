@@ -2,8 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import team_images from "./img/team_images";
+import './Info_Constructors.css';
+import "firebase/database";
+import TextField from "@mui/material/TextField";
+import logo from "./img/logo512.png";
 
 function Info_Constructors() {
+    let counter = -1;
+    const [show, setShow] = useState(false) 
     const [info, setInfo] = useState([]);
     var requestOptions = {
         method: 'GET',
@@ -22,23 +28,63 @@ function Info_Constructors() {
     }, []);
 
     console.log(info);
-    console.log(info.MRData?.ConstructorTable.Constructors);
-    console.log(team_images);
-
-    let counter = -1;
 
     function openDrivers() {
         console.log("const");
         window.location = "/statistics/info_drivers"
-    }
+    };
 
     function openTracks() {
         console.log("const");
         window.location = "/statistics/info_tracks"
-    }
+    };
+
+    function Home(){
+        console.log("hi");
+        window.location = "/"
+    };
+
+    function Schedule(){
+        console.log("hi");
+        window.location = "/schedule"
+    };
+
+    function F1Live(){
+        console.log("hi");
+        window.location = "/f1-live"
+    };
+
+    function Standings(){
+        console.log("hi");
+        window.location = "/standings/drivers_champ"
+    };
+    
+    function Information(){
+        console.log("hi");
+        window.location = "/statistics/info_drivers"
+    };
 
     return(
         <div>
+            {show === true? 
+                <div className="sidenav" >
+                    <button className="closebtn" onClick={() => setShow(false)}>X</button>     
+                    <img src={logo}/>
+                    <div className="search">
+                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
+                    </div>
+                    {/*<List input={inputText} />*/}
+                    <a href="#" onClick={Home}>Home</a>
+                    <a href="#" onClick={Schedule}>Schedule</a>
+                    <a href="#" onClick={F1Live}>F1 Live</a>
+                    <a href="#" onClick={Standings}>Standings</a>
+                    <a href="#" onClick={Information}>Information</a>
+                </div> 
+                : 
+                <div>
+                    <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                </div>
+            }
             <Row className='justify-content-center'>
                 <Col className='col-sm-2 text-center'>
                     <button className='info_drivers' onClick={() => openDrivers()}>Drivers</button>
@@ -48,14 +94,14 @@ function Info_Constructors() {
                 </Col>
             </Row>
             <br></br>
-            <div style={{height: "1000px"}}>
+            <div>
                 <Row>
                 {info.MRData?.ConstructorTable?.Constructors.map(element => {
                     counter = counter + 1;
                     return (
                         <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
-                            <Card className='card' style={{ width: '20rem', height: "100%", border: "1px solid black", marginLeft: "8%", borderCollapse: "collapse"}}>
-                                <Card.Img className='img' variant="top" src={team_images[counter]} style={{height: "100%", width: "100%", borderBottom: "1px solid black", borderCollapse: "collapse"}}/>
+                            <Card className='card' border='danger'>
+                                <Card.Img className='img' variant="top" src={team_images[counter]}/>
                                 <Card.Body>
                                     <Card.Title key={element.constructorId}>
                                         Team:{" "}

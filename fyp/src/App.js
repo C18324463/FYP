@@ -1,6 +1,5 @@
-import './App.css';
+//import './App.css';
 import React, {useState} from 'react';
-import SideNav from './SideNav';
 import Standings from "./Standings";
 import Schedule from "./Schedule";
 import F1Live from "./F1Live";
@@ -13,21 +12,15 @@ import RaceDetails from "./RaceDetails";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import "firebase/database";
 
-
-export default function App(props, state) {
-  
-  const [wid, setWid] = useState('0%');
-  const openSidenav = ( ) => {
-    setWid('25%')
-  }
-  const closeSidenav = ( ) => {
-    setWid('0%')
-  }
+export default function App() {
+  /*const [inputText, setInputText] = useState("");
+  let inputHandler = (e) => {
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };*/
 
   return (
-      <div className="app">
-        <button className='openBtn' onClick={openSidenav}>&#9776; Open</button>
-        <SideNav name='Bar' width={wid} closeNav={closeSidenav}/>
+      <div className="app" style={{height: "1950px", width: "1450px"}}>
         <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home/>}/>

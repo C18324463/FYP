@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Home.css';
+import './App.js';
 import {Card} from 'react-bootstrap';
 
 export default function Home(){
@@ -41,16 +42,28 @@ export default function Home(){
             <br></br>
             {results.map(element => {
               return (
-                <Card className='card' border="danger">
-                    <Card.Img className='img' variant="top" style={{ height: "20%", width: "20%"}} src={element.image.thumbnail.contentUrl}/>
-                    <Card.Body>
-                        <Card.Title key={element.name}>
-                            {element.name}
-                        </Card.Title>
-                        <Card.Text key={element.description}>
-                            {element.description}
-                        </Card.Text>
-                    </Card.Body>
+                <Card className='card1' border="danger">
+                    <div style={{display: "inline"}}>
+                        <Card.Img className='img1' variant="top" src={element.image?.thumbnail?.contentUrl}/>
+                        <Card.Body className='body1'>
+                            <Card.Title key={element.name}>
+                                {element.name}
+                            </Card.Title>
+                            <Card.Text style={{maxWidth: "800px"}} key={element.description}>
+                                {element.description}
+                            </Card.Text>
+                            <br></br>
+                            <br></br>
+                            <Card.Text style={{maxWidth: "800px", fontStyle: "italic"}}key={element.provider[0].name}>
+                                <Card.Img className='img2' variant="top" src={element.provider[0].image?.thumbnail?.contentUrl}/>
+                                {" "}
+                                {element.provider[0].name}
+                            </Card.Text>
+                            <Card.Text style={{maxWidth: "800px"}} key={element.url}>
+                                <Card.Link target="_blank" href={element.url}>{element.url}</Card.Link>
+                            </Card.Text>
+                        </Card.Body>
+                    </div>
                 </Card>
               )
             })}

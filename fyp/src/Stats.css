@@ -1,7 +1,5 @@
 .info_constructors, .info_tracks {
     width: "155px";
-    margin: "2px";
-    font-size: "50px";
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
@@ -24,6 +22,7 @@
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
+
 .info_tracks:hover, .info_constructors:hover{
     box-shadow: 0 0 40px 40px red inset;
     color: #fff;
@@ -37,13 +36,64 @@
     border-collapse: collapse;
 }
 
-.card:hover {
-    border-color: 5px solid green;
-}
-
 .img {
     height: 100%;
     width: 100%;
     border-bottom: 1px solid red;
     border-collapse: collapse;
 }
+
+.sidenav {
+    height: 100vh;
+    position: absolute; 
+    z-index: 1; 
+    top: 0; 
+    left: 0; 
+    background-color:#fc4444; 
+    transition: .5s ease; 
+    overflow-x: hidden;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    position: sticky;
+    width: 20%;
+    border: 2px solid black;
+    float: left;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    font-size: 25px;
+    margin-right: 50px;
+}
+
+.search {
+    width: 30%;
+    margin: 10px;
+    margin-left: 30px;
+    font-size: 40px;
+    color: rgb(1, 1, 59);
+    background-color: white;
+    align-items: center;
+}
+
+.openBtn {
+    width: 120px;
+    font-size: 25px;
+}
+

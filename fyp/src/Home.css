@@ -1,4 +1,21 @@
-.card {
-    width: 100%;
+.card1 {
+    width: 80%;
     height: 50%;
+    margin-bottom: 20px;
+}
+
+.img1 {
+    height: auto;
+    width: 150px;
+    float: left;
+}
+
+.body1 {
+    float: inline-end;
+}
+
+.img2 {
+    height: auto;
+    width: 30px;
+    float: left;
 }

@@ -1,7 +1,5 @@
 .info_tracks, .info_drivers {
     width: "155px";
-    margin: "2px";
-    font-size: "50px";
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
@@ -28,4 +26,5 @@
     box-shadow: 0 0 40px 40px red inset;
     color: #fff;
     outline: 0;
-  }
+}
+
