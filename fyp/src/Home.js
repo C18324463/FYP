@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import './Home.css';
 import './App.js';
-import {Card} from 'react-bootstrap';
+import {Card, Col, Row} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "firebase/database";
+import TextField from "@mui/material/TextField";
+import logo from "./img/logo512.png";
 
 export default function Home(){
-
+    const [show, setShow] = useState(false);
     const [search, setSearch] = useState("Formula1");
     const [results, setResults] = useState([]);
-
     const options = {
         method: 'GET',
         headers: {
@@ -27,46 +30,86 @@ export default function Home(){
         fetchData();
     }, []);
 
-    // setTimeout(()=> {
-    //     var response = fetch(`${results[0].url}`);
-    //     var data = response;
-    //     console.log(data);
-    // }, 3000);
-
     // .slice(0).reverse()
 
     console.log(results);
 
+    function Home(){
+        console.log("hi");
+        window.location = "/"
+    };
+
+    function Schedule(){
+        console.log("hi");
+        window.location = "/schedule"
+    };
+
+    function F1Live(){
+        console.log("hi");
+        window.location = "/f1-live"
+    };
+
+    function Standings(){
+        console.log("hi");
+        window.location = "/standings/drivers_champ"
+    };
+
+    function Information(){
+        console.log("hi");
+        window.location = "/statistics/info_drivers"
+    };
+
     return(
         <div>
-            <br></br>
-            {results.map(element => {
-              return (
-                <Card className='card1' border="danger">
-                    <div style={{display: "inline"}}>
-                        <Card.Img className='img1' variant="top" src={element.image?.thumbnail?.contentUrl}/>
-                        <Card.Body className='body1'>
-                            <Card.Title key={element.name}>
-                                {element.name}
-                            </Card.Title>
-                            <Card.Text style={{maxWidth: "800px"}} key={element.description}>
-                                {element.description}
-                            </Card.Text>
-                            <br></br>
-                            <br></br>
-                            <Card.Text style={{maxWidth: "800px", fontStyle: "italic"}}key={element.provider[0].name}>
-                                <Card.Img className='img2' variant="top" src={element.provider[0].image?.thumbnail?.contentUrl}/>
-                                {" "}
-                                {element.provider[0].name}
-                            </Card.Text>
-                            <Card.Text style={{maxWidth: "800px"}} key={element.url}>
-                                <Card.Link target="_blank" href={element.url}>{element.url}</Card.Link>
-                            </Card.Text>
-                        </Card.Body>
+            {show === true? 
+                <div className="sidenav">
+                    <button className="closebtn" onClick={() => setShow(false)}>X</button>     
+                    <img src={logo}/>
+                    <div className="search">
+                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
                     </div>
-                </Card>
-              )
-            })}
+                    {/*<List input={inputText} />*/}
+                    <a href="#" onClick={Home}>Home</a>
+                    <a href="#" onClick={Schedule}>Schedule</a>
+                    <a href="#" onClick={F1Live}>F1 Live</a>
+                    <a href="#" onClick={Standings}>Standings</a>
+                    <a href="#" onClick={Information}>Information</a>
+                </div> 
+                : 
+                <div>
+                    <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                </div>
+            }
+            <br></br>
+            <Row>
+                {results.map(element => {
+                return (
+                    <Card className='card1' border="danger">
+                        <div>
+                            <Card.Img className='img1' variant="top" src={element.image?.thumbnail?.contentUrl}/>
+                            <Card.Body>
+                                <Card.Title key={element.name}>
+                                    {element.name}
+                                </Card.Title>
+                                <Card.Text style={{maxWidth: "800px"}} key={element.description}>
+                                    {element.description}
+                                </Card.Text>
+                                <br></br>
+                                <br></br>
+                                <Card.Text style={{maxWidth: "800px", fontStyle: "italic"}}key={element.provider[0].name}>
+                                    <Card.Img className='img2' variant="top" src={element.provider[0].image?.thumbnail?.contentUrl}/>
+                                    {" "}
+                                    {element.provider[0].name}
+                                </Card.Text>
+                                <Card.Text style={{maxWidth: "800px"}} key={element.url}>
+                                    <Card.Link target="_blank" href={element.url}>{element.url}</Card.Link>
+                                </Card.Text>
+                            </Card.Body>
+                        </div>
+                    </Card>
+                )
+                })}
+            </Row>
         </div>
     )
 }

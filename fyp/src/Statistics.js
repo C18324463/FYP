@@ -9,7 +9,7 @@ import logo from "./img/logo512.png";
 
 function Statistics(){
     let counter = -1;
-    const [show, setShow] = useState(false) 
+    const [show, setShow] = useState(false);
     const [info, setInfo] = useState([]);
     var requestOptions = {
       method: 'GET',
