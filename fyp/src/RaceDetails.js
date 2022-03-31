@@ -1,18 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
-import db from "./Firebase"
+import {Table} from 'react-bootstrap';
+import {useParams} from 'react-router-dom';
+import "firebase/database";
+import './RaceDetails.css';
+import TextField from "@mui/material/TextField";
+import logo from "./img/logo512.png";
 
 function RaceDetails(){
     const {circuitId} = useParams();
-    const ref = db.ref("MRData/RaceTable/Races");
-    /*ref.on('value', snapshot => {
-        let list = snapshot.val();
-        /*list.forEach((element, index) => {
-            if (index === globalNum.value){
-            }
-        });
-    });*/
-
+    const [show, setShow] = useState(false);
     const [schedule, setSchedule] = useState([]);
     var requestOptions = {
       method: 'GET',
@@ -31,14 +27,57 @@ function RaceDetails(){
     }, []);
 
     console.log(schedule);
-    console.log(schedule.MRData?.RaceTable?.Races[0]);
+
+    function Home(){
+        console.log("hi");
+        window.location = "/"
+    };
+
+    function Schedule(){
+        console.log("hi");
+        window.location = "/schedule"
+    };
+
+    function F1Live(){
+        console.log("hi");
+        window.location = "/f1-live"
+    };
+
+    function Standings(){
+        console.log("hi");
+        window.location = "/standings/drivers_champ"
+    };
+
+    function Information(){
+        console.log("hi");
+        window.location = "/statistics/info_drivers"
+    };
 
     return(
         <div>
+            {show === true? 
+                <div id="sidenav">
+                    <button className="closebtn" onClick={() => setShow(false)}>X</button>     
+                    <img src={logo}/>
+                    <div className="search">
+                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
+                    </div>
+                    {/*<List input={inputText} />*/}
+                    <a href="#" onClick={Home}>Home</a>
+                    <a href="#" onClick={Schedule}>Schedule</a>
+                    <a href="#" onClick={F1Live}>F1 Live</a>
+                    <a href="#" onClick={Standings}>Standings</a>
+                    <a href="#" onClick={Information}>Information</a>
+                </div> 
+                : 
+                <div>
+                    <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                </div>
+            }
             <br></br>
             {schedule.MRData?.RaceTable?.Races.map(function(element) {
                 return (
-                    <table>
+                    <Table id='race_info' style={{ border: "1px solid black", borderCollapse: "collapse", width: "70%", margin: "auto", fontSize: "20px"}}>
                         <thead>
                             <tr>
                                 <th key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
@@ -106,8 +145,7 @@ function RaceDetails(){
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
-                    
+                    </Table>
                 )
                 }  )}
         </div>

@@ -20,7 +20,7 @@ export default function App() {
   };*/
 
   return (
-      <div className="app" style={{height: "1950px", width: "1450px"}}>
+      <div className="app" style={{height: "auto", width: "1450px"}}>
         <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home/>}/>

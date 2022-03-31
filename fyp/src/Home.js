@@ -98,7 +98,6 @@ export default function Home(){
                                 <br></br>
                                 <Card.Text style={{maxWidth: "800px", fontStyle: "italic"}}key={element.provider[0].name}>
                                     <Card.Img className='img2' variant="top" src={element.provider[0].image?.thumbnail?.contentUrl}/>
-                                    {" "}
                                     {element.provider[0].name}
                                 </Card.Text>
                                 <Card.Text style={{maxWidth: "800px"}} key={element.url}>

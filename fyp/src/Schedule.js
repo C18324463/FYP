@@ -1,8 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import './Schedule.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "firebase/database";
+import TextField from "@mui/material/TextField";
+import logo from "./img/logo512.png";
 
 export default function Schedule(){
+    let counter = -1;
+    const [show, setShow] = useState(false);
     const [schedule, setSchedule] = useState([]);
     var requestOptions = {
       method: 'GET',
@@ -21,42 +28,86 @@ export default function Schedule(){
     }, []);
 
     console.log(schedule);
-    console.log(schedule.MRData?.RaceTable?.Races[0]);
-    let counter = -1;
+
+    function Home(){
+        console.log("hi");
+        window.location = "/"
+    };
+
+    function Schedule(){
+        console.log("hi");
+        window.location = "/schedule"
+    };
+
+    function F1Live(){
+        console.log("hi");
+        window.location = "/f1-live"
+    };
+
+    function Standings(){
+        console.log("hi");
+        window.location = "/standings/drivers_champ"
+    };
+
+    function Information(){
+        console.log("hi");
+        window.location = "/statistics/info_drivers"
+    };
 
     return(
         <div>
-          <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "70%", margin: "auto", fontSize: "20px"}}>
-            <thead>
-                <tr>
-                    <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Race Name</th>
-                    <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Date</th>
-                    <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Time GMT</th>
-                    <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Circuit</th>
-                </tr>
-            </thead>
-            <tbody>
-                {schedule.MRData?.RaceTable?.Races.map((element, index) => {
-                    counter = counter + 1;
-                    return (
-                        <tr>
-                            <td key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                <Link to={{pathname:`/schedule/${index+1}`, state:{circuitId:index+1}}}>{element.raceName}</Link>
-                            </td>
-                            <td key={element.date} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                {element.date}
-                            </td>
-                            <td key={element.time} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                {element.time}
-                            </td>
-                            <td key={element.Circuit.circuitName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                {element.Circuit.circuitName}
-                            </td>
-                        </tr>
-                    )
-                    }  )}
-            </tbody>
-      </Table>
+            {show === true? 
+                <div id="sidenav">
+                    <button className="closebtn" onClick={() => setShow(false)}>X</button>     
+                    <img src={logo}/>
+                    <div className="search">
+                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
+                    </div>
+                    {/*<List input={inputText} />*/}
+                    <a href="#" onClick={Home}>Home</a>
+                    <a href="#" onClick={Schedule}>Schedule</a>
+                    <a href="#" onClick={F1Live}>F1 Live</a>
+                    <a href="#" onClick={Standings}>Standings</a>
+                    <a href="#" onClick={Information}>Information</a>
+                </div> 
+                : 
+                <div>
+                    <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                </div>
+            }
+            <br></br>
+            <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "70%", margin: "auto", fontSize: "20px"}}>
+                <thead>
+                    <tr>
+                        <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Race Name</th>
+                        <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Date</th>
+                        <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Time GMT</th>
+                        <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Circuit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {schedule.MRData?.RaceTable?.Races.map((element, index) => {
+                        counter = counter + 1;
+                        return (
+                            <tr>
+                                <td key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                                    <Link to={{pathname:`/schedule/${index+1}`, state:{circuitId:index+1}}}>{element.raceName}</Link>
+                                </td>
+                                <td key={element.date} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                                    {element.date}
+                                </td>
+                                <td key={element.time} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                                    {element.time}
+                                </td>
+                                <td key={element.Circuit.circuitName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                                    {element.Circuit.circuitName}
+                                </td>
+                            </tr>
+                        )
+                        }  )}
+                </tbody>
+            </Table>
+            <br></br>
         </div>
     )
 }

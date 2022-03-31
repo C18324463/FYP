@@ -77,7 +77,7 @@ function Standings(){
             <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
         </div>
       }
-      <button id='constructors' className='justify-content-center' onClick={() => openConstructors()} style={{marginLeft: "42%"}}>Constructors</button>
+      <button id='constructors' className='justify-content-center' onClick={() => openConstructors()} style={{marginLeft: "45%"}}>Constructors</button>
       <br></br>
         <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
           <thead>

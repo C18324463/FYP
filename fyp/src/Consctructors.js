@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import './Constructors.css';
 import {Table} from 'react-bootstrap';
+import "firebase/database";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TextField from "@mui/material/TextField";
+import logo from "./img/logo512.png";
 
 function Constructors() {
+    const [show, setShow] = useState(false) 
     const [results, setResults] = useState([]);
     var requestOptions = {
       method: 'GET',
@@ -20,17 +25,60 @@ function Constructors() {
       fetchData();
     }, []);
 
+    console.log(results);
+
     function openDrivers() {
         console.log("const");
         window.location = "/standings/drivers_champ"
-    }
+    };
 
-    console.log(results);
-    console.log(results.MRData?.StandingsTable?.StandingsLists[0].ConstructorStandings[0]);
+    function Home(){
+        console.log("hi");
+        window.location = "/"
+    };
+
+    function Schedule(){
+        console.log("hi");
+        window.location = "/schedule"
+    };
+
+    function F1Live(){
+        console.log("hi");
+        window.location = "/f1-live"
+    };
+
+    function Standings(){
+        console.log("hi");
+        window.location = "/standings/drivers_champ"
+    };
+
+    function Information(){
+        console.log("hi");
+        window.location = "/statistics/info_drivers"
+    };
 
     return(
         <div>
-          <button className='drivers' onClick={() => openDrivers()}>Drivers</button>
+          {show === true? 
+            <div id="sidenav">
+                <button className="closebtn" onClick={() => setShow(false)}>X</button>     
+                <img src={logo}/>
+                <div className="search">
+                    <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
+                </div>
+                {/*<List input={inputText} />*/}
+                <a href="#" onClick={Home}>Home</a>
+                <a href="#" onClick={Schedule}>Schedule</a>
+                <a href="#" onClick={F1Live}>F1 Live</a>
+                <a href="#" onClick={Standings}>Standings</a>
+                <a href="#" onClick={Information}>Information</a>
+            </div> 
+            : 
+            <div>
+                <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+            </div>
+          }
+          <button id='drivers' className='justify-content-center' onClick={() => openDrivers()} style={{marginLeft: "47%"}}>Drivers</button>
           <br></br>
           <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
             <thead>
