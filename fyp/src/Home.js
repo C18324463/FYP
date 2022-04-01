@@ -81,7 +81,7 @@ export default function Home(){
                 </div>
             }
             <br></br>
-            <Row>
+            <Row id='row'>
                 {results.map(element => {
                 return (
                     <Card className='card1' border="danger">

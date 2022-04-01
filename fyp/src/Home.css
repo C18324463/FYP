@@ -20,7 +20,7 @@
     margin-right: 5px;
 }
 
-.row {
+#row {
     --bs-gutter-x: 0rem;
     margin-left: 10%;
 }
