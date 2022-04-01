@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import team_images from "./img/team_images";
 import './Info_Constructors.css';
 import "firebase/database";
-import TextField from "@mui/material/TextField";
 import logo from "./img/logo512.png";
 
 function Info_Constructors() {
@@ -69,11 +68,9 @@ function Info_Constructors() {
             {show === true? 
                 <div className="sidenav" >
                     <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                    <img src={logo}/>
-                    <div className="search">
-                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
-                    </div>
-                    {/*<List input={inputText} />*/}
+                    <img id='logo' src={logo}/>
+                    <br></br>
+                    <br></br>
                     <a href="#" onClick={Home}>Home</a>
                     <a href="#" onClick={Schedule}>Schedule</a>
                     <a href="#" onClick={F1Live}>F1 Live</a>

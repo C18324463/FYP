@@ -4,13 +4,14 @@ import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import driver_images from "./img/driver_images";
 import "firebase/database";
-import TextField from "@mui/material/TextField";
 import logo from "./img/logo512.png";
 
 function Statistics(){
     let counter = -1;
     const [show, setShow] = useState(false);
     const [info, setInfo] = useState([]);
+    const [driverSearch, setDriverSearch] = useState("");
+    const [bollox, setBollox] = useState([]);
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -25,7 +26,22 @@ function Statistics(){
         .catch(error => console.log('error', error));
       };
       fetchData();
-    }, []);
+
+    //   setTimeout(() => {
+    //     info.MRData?.DriverTable?.Drivers.map(function(element, index) {
+    //         console.log(element);
+    //         element.push({img : driver_images[index]});
+    //     });
+    //     console.log(info.MRData?.DriverTable?.Drivers);
+    //   }, 1000)
+    //   setBollox(info.MRData?.DriverTable?.Drivers.filter((element) => element.givenName.toLowerCase().includes(driverSearch.toLowerCase())));
+    }, [/*driverSearch*/]);
+
+
+    // useEffect(() => {
+    //     console.log(driverSearch);
+    //     setDriverSearch(info.MRData?.DriverTable?.Drivers.filter((element) => element.givenName.toLowerCase().includes(driverSearch.toLowerCase())));
+    // }, [driverSearch]);
 
     console.log(info);
 
@@ -69,11 +85,9 @@ function Statistics(){
             {show === true? 
                 <div className="sidenav">
                     <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                    <img src={logo}/>
-                    <div className="search">
-                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
-                    </div>
-                    {/*<List input={inputText} />*/}
+                    <img id='logo' src={logo}/>
+                    <br></br>
+                    <br></br>
                     <a href="#" onClick={Home}>Home</a>
                     <a href="#" onClick={Schedule}>Schedule</a>
                     <a href="#" onClick={F1Live}>F1 Live</a>
@@ -92,11 +106,16 @@ function Statistics(){
                 <Col className='col-sm-3 text-center'>
                     <button className='info_tracks' onClick={() => openTracks()}>Tracks</button>
                 </Col>
+                {/* <Col className='col-sm-3 text-center'>
+                    <input type="text" placeholder="Search..." onInput={(e) => setDriverSearch(e.target.value)}/>
+                </Col> */}
             </Row>
             <br></br>
             <div>
             <Row>
-                {info.MRData?.DriverTable?.Drivers.map(element => {
+                {driverSearch.length > 0 ?
+                
+                bollox?.map(element => {
                     counter = counter + 1;
                     return (
                         <Col className='col-sm-3' style={{marginBottom: "20px"}}>
@@ -124,7 +143,38 @@ function Statistics(){
                             </Card>
                         </Col>
                     )
-                }  )}
+                }  ) :
+                info.MRData?.DriverTable?.Drivers.map(element => {
+                    console.log("hello") 
+                    counter = counter + 1;
+                    return (
+                        <Col className='col-sm-3' style={{marginBottom: "20px"}}>
+                            <Card className='card' border="danger">
+                                <Card.Img className='img' variant="top" src={driver_images[counter]}/>
+                                <Card.Body>
+                                    <Card.Title key={element.driverId}>
+                                        Name:
+                                        {" "}
+                                        {element.givenName}
+                                        {" "}
+                                        {element.familyName}
+                                    </Card.Title>
+                                    <Card.Text>
+                                        Date{" "}of{" "}Birth:{" "}
+                                        {element.dateOfBirth}
+                                        <br></br>
+                                        Nationality:{" "}
+                                        {element.nationality}
+                                        <br></br>
+                                        Driver{" "}Number:{" "}
+                                        {element.permanentNumber}
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )
+                }  )
+                }
             </Row>
             </div>
         </div>

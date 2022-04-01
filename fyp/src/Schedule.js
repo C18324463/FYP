@@ -59,11 +59,9 @@ export default function Schedule(){
             {show === true? 
                 <div id="sidenav">
                     <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                    <img src={logo}/>
-                    <div className="search">
-                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
-                    </div>
-                    {/*<List input={inputText} />*/}
+                    <img id='logo' src={logo}/>
+                    <br></br>
+                    <br></br>
                     <a href="#" onClick={Home}>Home</a>
                     <a href="#" onClick={Schedule}>Schedule</a>
                     <a href="#" onClick={F1Live}>F1 Live</a>

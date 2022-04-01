@@ -4,7 +4,6 @@ import './App.js';
 import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "firebase/database";
-import TextField from "@mui/material/TextField";
 import logo from "./img/logo512.png";
 
 export default function Home(){
@@ -64,11 +63,9 @@ export default function Home(){
             {show === true? 
                 <div className="sidenav">
                     <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                    <img src={logo}/>
-                    <div className="search">
-                        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
-                    </div>
-                    {/*<List input={inputText} />*/}
+                    <img id='logo' src={logo}/>
+                    <br></br>
+                    <br></br>
                     <a href="#" onClick={Home}>Home</a>
                     <a href="#" onClick={Schedule}>Schedule</a>
                     <a href="#" onClick={F1Live}>F1 Live</a>
