@@ -18,7 +18,7 @@ function F1Live(){
 
     useEffect(() => {
         const fetchData = async () => {
-          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3111`, options)
+          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3113`, options)
           .then(response => response.json())
           .then(result => setLive(result))
           .catch(error => console.log('error', error));
@@ -28,16 +28,36 @@ function F1Live(){
 
       console.log(live);
       let array = [];
+      let array2 = [];
+      let array3 = [];
+      let array4 = [];
       let index = 0;
+      let index2 = 0;
+      let index3 = 0;
+      let index4 = 0;
 
-      for (index = 0; index < live.results?.drivers.length; index++) {
+      for(index = 0; index < live.results?.drivers.length; index++) {
         array[index] = [live.results?.drivers[index]];
       }
 
+      for(index2 = 0; index2< live.results?.speed?.top_speeds[0]?.drivers.length; index2++) {
+        array2[index2] = [live.results?.speed?.top_speeds[0].drivers[index2]];
+      } 
+
+      for(index3 = 0; index3< live.results?.speed?.top_speeds[1]?.drivers.length; index3++) {
+        array3[index3] = [live.results?.speed?.top_speeds[1].drivers[index3]];
+      } 
+
+      for(index4 = 0; index4< live.results?.speed?.top_speeds[2]?.drivers.length; index4++) {
+        array4[index4] = [live.results?.speed?.top_speeds[2].drivers[index4]];
+      } 
 
       ///////////////////
       console.log(array);
-      console.log(array[0]);
+      console.log(array2);
+      console.log(array3);
+      console.log(array4);
+      //console.log(array2[0]);
 
     ///////////////////////////////////////////////////////////////////////////
     function Home(){
@@ -85,54 +105,126 @@ function F1Live(){
             </div>
           }
           <br></br>
-          <Table id='live_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
-          <thead>
-            <tr>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Position</th>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Driver</th>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Team</th>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Tyre</th>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Time</th>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Gap</th>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Interval</th>
-              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Lap Number</th>
-            </tr>
-          </thead>
-          <tbody>
-              {array.map(element => { 
+          <Table id='live_standings'>
+            <thead>
+              <tr>
+                <th id='header'>Position</th>
+                <th id='header'>Driver</th>
+                <th id='header'>Team</th>
+                <th id='header'>Tyre</th>
+                <th id='header'>Time</th>
+                <th id='header'>Gap to Leader</th>
+                <th id='header'>Gap to Driver Ahead</th>
+                <th id='header'>Lap Number</th>
+              </tr>
+            </thead>
+            <tbody>
+                {array.map(element => { 
+                  return (
+                    <tr>
+                      <td id='cell'>
+                        {element[0].position}
+                      </td>
+                      <td id='cell'>
+                        {element[0].name}
+                      </td>
+                      <td id='cell'>
+                        {element[0].team_name}
+                      </td>
+                      <td id='cell'>
+                        {element[0].current_tyre}
+                      </td>
+                      <td id='cell'>
+                        {element[0].time}
+                      </td>
+                      <td id='cell'>
+                        {element[0].gap}
+                      </td>
+                      <td id='cell'>
+                        {element[0].interval}
+                      </td>
+                      <td id='cell'>
+                        {element[0].current_lap}
+                      </td>
+                    </tr>
+                  )
+                }  )}
+            </tbody>
+          </Table>
+          <br></br>
+          <h1 id='label'>Sector 1 Top 6 Speeds</h1>
+          <Table id='speeds'>
+            <thead>
+              <tr>
+                <th id='header'>Speed Position</th>
+                <th id='header'>Driver</th>
+                <th id='header'>Team</th>
+                <th id='header'>Speed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {array2.map(element => {
                 return (
                   <tr>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].position}
-                    </td>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].name}
-                    </td>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].team_name}
-                    </td>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].current_tyre}
-                    </td>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].time}
-                    </td>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].gap}
-                    </td>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].interval}
-                    </td>
-                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                      {element[0].current_lap}
-                    </td>
+                    <td id='cell'>{element[0].position}</td>
+                    <td id='cell'>{element[0].driver}</td>
+                    <td id='cell'>{element[0].team_name}</td>
+                    <td id='cell'>{element[0].speed}</td>
                   </tr>
                 )
-              }  )}
-          </tbody>
-        </Table>
-        <br></br>
-        <br></br>
+              })}
+            </tbody>
+          </Table>
+          <br></br>
+          <h1 id='label'>Sector 2 Top 6 Speeds</h1>
+          <Table id='speeds'>
+            <thead>
+              <tr>
+                <th id='header'>Speed Position</th>
+                <th id='header'>Driver</th>
+                <th id='header'>Team</th>
+                <th id='header'>Speed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {array3.map(element => {
+                return (
+                  <tr>
+                    <td id='cell'>{element[0].position}</td>
+                    <td id='cell'>{element[0].driver}</td>
+                    <td id='cell'>{element[0].team_name}</td>
+                    <td id='cell'>{element[0].speed}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </Table>
+          <br></br>
+          <h1 id='label'>Sector 3 Top 6 Speeds</h1>
+          <Table id='speeds'>
+            <thead>
+              <tr>
+                <th id='header'>Speed Position</th>
+                <th id='header'>Driver</th>
+                <th id='header'>Team</th>
+                <th id='header'>Speed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {array4.map(element => {
+                return (
+                  <tr>
+                    <td id='cell'>{element[0].position}</td>
+                    <td id='cell'>{element[0].driver}</td>
+                    <td id='cell'>{element[0].team_name}</td>
+                    <td id='cell'>{element[0].speed}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </Table>
+          <br></br>
+          <br></br>
         </div>
     )
 }
