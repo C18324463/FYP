@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import './F1Live.css';
+import {Table} from 'react-bootstrap';
 import "firebase/database";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./img/logo512.png";
 
 function F1Live(){
     const [show, setShow] = useState(false)
-    const [schedule, setSchedule] = useState([]);
+    const [live, setLive] = useState([]);
     const options = {
       method: 'GET',
       headers: {
@@ -17,15 +18,26 @@ function F1Live(){
 
     useEffect(() => {
         const fetchData = async () => {
-          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3120`, options)
+          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3111`, options)
           .then(response => response.json())
-          .then(result => setSchedule(result))
+          .then(result => setLive(result))
           .catch(error => console.log('error', error));
         };
         fetchData();
       }, []);
 
-      console.log(schedule);
+      console.log(live);
+      let array = [];
+      let index = 0;
+
+      for (index = 0; index < live.results?.drivers.length; index++) {
+        array[index] = [live.results?.drivers[index]];
+      }
+
+
+      ///////////////////
+      console.log(array);
+      console.log(array[0]);
 
     ///////////////////////////////////////////////////////////////////////////
     function Home(){
@@ -72,7 +84,55 @@ function F1Live(){
                 <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
             </div>
           }
-          
+          <br></br>
+          <Table id='live_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
+          <thead>
+            <tr>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Position</th>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Driver</th>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Team</th>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Tyre</th>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Time</th>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Gap</th>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Interval</th>
+              <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Lap Number</th>
+            </tr>
+          </thead>
+          <tbody>
+              {array.map(element => { 
+                return (
+                  <tr>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].position}
+                    </td>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].name}
+                    </td>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].team_name}
+                    </td>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].current_tyre}
+                    </td>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].time}
+                    </td>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].gap}
+                    </td>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].interval}
+                    </td>
+                    <td style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                      {element[0].current_lap}
+                    </td>
+                  </tr>
+                )
+              }  )}
+          </tbody>
+        </Table>
+        <br></br>
+        <br></br>
         </div>
     )
 }
