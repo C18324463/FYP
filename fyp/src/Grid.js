@@ -5,7 +5,7 @@ import "firebase/database";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./img/logo512.png";
 
-function F1Live(){
+function Grid(){
     const [show, setShow] = useState(false)
     const [live, setLive] = useState([]);
     const options = {
@@ -18,7 +18,7 @@ function F1Live(){
 
     useEffect(() => {
         const fetchData = async () => {
-          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3113`, options)
+          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3119`, options)
           .then(response => response.json())
           .then(result => setLive(result))
           .catch(error => console.log('error', error));
@@ -52,6 +52,13 @@ function F1Live(){
         array4[index4] = [live.results?.speed?.top_speeds[2].drivers[index4]];
       } 
 
+      ///////////////////
+      console.log(array);
+      console.log(array2);
+      console.log(array3);
+      console.log(array4);
+
+    ///////////////////////////////////////////////////////////////////////////
     function Home(){
         console.log("hi");
         window.location = "/"
@@ -78,32 +85,33 @@ function F1Live(){
     };
 
     function FP2(){
-      window.location = "/f1-live/fp2"
+        window.location = "/f1-live/fp2"
     };
 
     function FP3(){
-      window.location = "/f1-live/fp3"
+        window.location = "/f1-live/fp3"
     };
 
     function Q1(){
-      window.location = "/f1-live/q1"
+        window.location = "/f1-live/q1"
     };
 
     function Q2(){
-      window.location = "/f1-live/q2"
+        window.location = "/f1-live/q2"
     };
 
     function Q3(){
-      window.location = "/f1-live/q3"
+        window.location = "/f1-live/q3"
     };
 
     function Grid(){
-      window.location = "/f1-live/grid"
+        window.location = "/f1-live/grid"
     };
 
     function Race(){
-      window.location = "/f1-live/race"
+        window.location = "/f1-live/race"
     };
+
 
     return(
         <div>
@@ -157,9 +165,6 @@ function F1Live(){
                 <th id='header'>Position</th>
                 <th id='header'>Driver</th>
                 <th id='header'>Team</th>
-                <th id='header'>Time</th>
-                <th id='header'>Gap to Leader</th>
-                <th id='header'>Laps Completed</th>
               </tr>
             </thead>
             <tbody>
@@ -175,90 +180,9 @@ function F1Live(){
                       <td id='cell'>
                         {element[0].team_name}
                       </td>
-                      <td id='cell'>
-                        {element[0].time}
-                      </td>
-                      <td id='cell'>
-                        {element[0].gap}
-                      </td>
-                      <td id='cell'>
-                        {element[0].current_lap}
-                      </td>
                     </tr>
                   )
                 }  )}
-            </tbody>
-          </Table>
-          <br></br>
-          <h1 id='label'>Sector 1 Top 6 Speeds</h1>
-          <Table id='speeds'>
-            <thead>
-              <tr>
-                <th id='header'>Speed Position</th>
-                <th id='header'>Driver</th>
-                <th id='header'>Team</th>
-                <th id='header'>Speed</th>
-              </tr>
-            </thead>
-            <tbody>
-              {array2.map(element => {
-                return (
-                  <tr>
-                    <td id='cell'>{element[0].position}</td>
-                    <td id='cell'>{element[0].driver}</td>
-                    <td id='cell'>{element[0].team_name}</td>
-                    <td id='cell'>{element[0].speed}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </Table>
-          <br></br>
-          <h1 id='label'>Sector 2 Top 6 Speeds</h1>
-          <Table id='speeds'>
-            <thead>
-              <tr>
-                <th id='header'>Speed Position</th>
-                <th id='header'>Driver</th>
-                <th id='header'>Team</th>
-                <th id='header'>Speed</th>
-              </tr>
-            </thead>
-            <tbody>
-              {array3.map(element => {
-                return (
-                  <tr>
-                    <td id='cell'>{element[0].position}</td>
-                    <td id='cell'>{element[0].driver}</td>
-                    <td id='cell'>{element[0].team_name}</td>
-                    <td id='cell'>{element[0].speed}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </Table>
-          <br></br>
-          <h1 id='label'>Sector 3 Top 6 Speeds</h1>
-          <Table id='speeds'>
-            <thead>
-              <tr>
-                <th id='header'>Speed Position</th>
-                <th id='header'>Driver</th>
-                <th id='header'>Team</th>
-                <th id='header'>Speed</th>
-              </tr>
-            </thead>
-            <tbody>
-              {array4.map(element => {
-                return (
-                  <tr>
-                    <td id='cell'>{element[0].position}</td>
-                    <td id='cell'>{element[0].driver}</td>
-                    <td id='cell'>{element[0].team_name}</td>
-                    <td id='cell'>{element[0].speed}</td>
-                  </tr>
-                )
-              })}
             </tbody>
           </Table>
           <br></br>
@@ -267,4 +191,4 @@ function F1Live(){
     )
 }
 
-export default F1Live;
+export default Grid;

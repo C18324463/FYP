@@ -50,7 +50,7 @@ function Info_Constructors() {
 
     function F1Live(){
         console.log("hi");
-        window.location = "/f1-live"
+        window.location = "/f1-live/fp1"
     };
 
     function Standings(){
