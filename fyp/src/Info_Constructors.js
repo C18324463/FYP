@@ -49,7 +49,8 @@ function Info_Constructors() {
 
     useEffect(() => {
         console.log(answer);
-        setSearch(answer?.filter((element) => element.name.toLowerCase().includes(teamSearch.toLowerCase())));
+        setSearch(answer?.filter((element) => element.name.toLowerCase().includes(teamSearch.toLowerCase())
+        || element.nationality.toLowerCase().includes(teamSearch.toLowerCase())));
     }, [teamSearch])
 
     console.log(x);

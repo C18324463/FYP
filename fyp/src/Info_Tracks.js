@@ -51,7 +51,9 @@ function Info_Tracks() {
 
     useEffect(() => {
         console.log(answer);
-        setSearch(answer?.filter((element) => element.circuitName.toLowerCase().includes(trackSearch.toLowerCase())));
+        setSearch(answer?.filter((element) => element.circuitName.toLowerCase().includes(trackSearch.toLowerCase()) 
+        || element.locality.toLowerCase().includes(trackSearch.toLowerCase())
+        || element.country.toLowerCase().includes(trackSearch.toLowerCase())));
     }, [trackSearch])
 
     console.log(x);

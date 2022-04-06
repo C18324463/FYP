@@ -53,7 +53,9 @@ function Statistics(){
 
     useEffect(() => {
         console.log(answer);
-        setSearch(answer?.filter((element) => element.givenName.toLowerCase().includes(driverSearch.toLowerCase())));
+        setSearch(answer?.filter((element) => element.givenName.toLowerCase().includes(driverSearch.toLowerCase()) 
+        || element.familyName.toLowerCase().includes(driverSearch.toLowerCase()) 
+        || element.nationality.toLowerCase().includes(driverSearch.toLowerCase())));
     }, [driverSearch])
 
     
