@@ -23,6 +23,7 @@
 #row {
     --bs-gutter-x: 0rem;
     margin-left: 10%;
+    display: flex;
 }
 
 .sidenav {
@@ -31,15 +32,16 @@
     z-index: 1; 
     top: 0; 
     left: 0; 
-    background-color:#fc4444; 
-    transition: .5s ease; 
+    background-color:#fc4444;
     overflow-x: hidden;
     display: flex; 
     flex-direction: column; 
     align-items: center;
     position: sticky;
     width: 20%;
-    border: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
     float: left;
 }
 
@@ -56,7 +58,7 @@
     color: #f1f1f1;
 }
 
-.sidenav .closebtn {
+.sidenav .closebtn1 {
     position: absolute;
     top: 0;
     left: 0px;
@@ -64,21 +66,49 @@
     margin-right: 50px;
 }
 
-.search {
-    width: 30%;
-    margin: 10px;
-    margin-left: 30px;
-    font-size: 40px;
-    color: rgb(1, 1, 59);
-    background-color: white;
-    align-items: center;
-}
-
 .openBtn {
-    width: 120px;
-    font-size: 25px;
+    width: 130px;
+    font-size: 26px;
+    color: white;
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    background-color: black;
 }
 
-#logo {
+#logo1 {
     margin-left: 5%;
+}
+
+#title1 {
+    background-color: #fc4444;
+    height: 80px;
+    width: 104.7%;
+    border: 2px solid black;
+}
+
+#universe1 {
+    width: 20%;
+    margin-left: 39%;
+    font-size: 3.2rem;
+    padding-top: 5px;
+    color: black;
+}
+
+#title_side1 {
+    background-color: #fc4444;
+    height: 80px;
+    width: 84.7%;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    margin-left: 20%;
+}
+
+#universe_side1 {
+    width: 25%;
+    margin-left: 32%;
+    font-size: 3.2rem;
+    padding-top: 5px;
+    color: black;
 }
