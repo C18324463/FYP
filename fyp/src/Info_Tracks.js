@@ -8,8 +8,13 @@ import logo from "./img/logo512.png";
 
 function Info_Tracks() {
     let counter = -1;
-    const [show, setShow] = useState(false)
-    const [info, setInfo] = useState([]);
+    let number = 0
+    let info = [];
+    let x = [];
+    const [show, setShow] = useState(false);
+    const [trackSearch, setTrackSearch] = useState("");
+    const [search, setSearch] = useState([]);
+    const [answer, setAnswer] = useState([]);
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -20,13 +25,39 @@ function Info_Tracks() {
           await fetch(`http://ergast.com/api/f1/2022/circuits.json`, requestOptions)
           .then(response => response.text())
           .then(response2 => JSON.parse(response2))
-          .then(result => setInfo(result))
+          .then(result => info = result)
           .catch(error => console.log('error', error));
         };
         fetchData();
+
+        setTimeout (() => {
+            console.log(info);
+            console.log(x);
+            for(number = 0; number < info.MRData?.CircuitTable?.Circuits.length; number++) {
+                var obj = {};
+                obj.img = track_images[number];
+                obj.circuitName = info.MRData?.CircuitTable?.Circuits[number].circuitName;
+                obj.nationality = info.MRData?.CircuitTable?.Circuits[number].nationality;
+                obj.locality = info.MRData?.CircuitTable?.Circuits[number].Location.locality;
+                obj.country = info.MRData?.CircuitTable?.Circuits[number].Location.country;
+                obj.circuitId = info.MRData?.CircuitTable?.Circuits[number].Location.circuitId;
+                x.push(obj);
+            }
+            console.log(x);
+            setAnswer(x);
+        }, 1000)
+
     }, []);
 
+    useEffect(() => {
+        console.log(answer);
+        setSearch(answer?.filter((element) => element.circuitName.toLowerCase().includes(trackSearch.toLowerCase())));
+    }, [trackSearch])
+
+    console.log(x);
     console.log(info);
+    console.log(search);
+    console.log(answer);
 
     function openDrivers() {
         console.log("const");
@@ -89,33 +120,62 @@ function Info_Tracks() {
                 <Col className='col-sm-2 text-center'>
                     <button className='info_constructors' onClick={() => openConstructors()}>Constructors</button>
                 </Col>
+                <Col className='col-sm-3 text-center'>
+                    <input id='input1' type="text" placeholder="Search..." onInput={(e) => setTrackSearch(e.target.value)}/>
+                </Col>
             </Row>
             <br></br>
             <div>
                 <Row>
-                {info.MRData?.CircuitTable?.Circuits.map(element => {
-                    counter = counter + 1;
-                    return (
-                        <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
-                            <Card className='card' border='danger'>
-                                <Card.Img className='img' variant="top" src={track_images[counter]}/>
-                                <Card.Body>
-                                    <Card.Title key={element.circuitId}>
-                                        Name:{" "}
-                                        {element.circuitName}
-                                    </Card.Title>
-                                    <Card.Text>
-                                        Location:{" "}
-                                        {element.Location.locality}
-                                        <br></br>
-                                        Country:{" "}
-                                        {element.Location.country}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )
-                }  )}
+                {trackSearch ?
+                    search?.map(element => {
+                        counter = counter + 1;
+                        return (
+                            <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
+                                <Card className='card' border='danger'>
+                                    <Card.Img className='img' variant="top" src={element.img}/>
+                                    <Card.Body>
+                                        <Card.Title key={element.circuitId}>
+                                            Name:{" "}
+                                            {element.circuitName}
+                                        </Card.Title>
+                                        <Card.Text>
+                                            Location:{" "}
+                                            {element.locality}
+                                            <br></br>
+                                            Country:{" "}
+                                            {element.country}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    }  )
+                    :
+                    answer?.map(element => {
+                        counter = counter + 1;
+                        return (
+                            <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
+                                <Card className='card' border='danger'>
+                                    <Card.Img className='img' variant="top" src={element.img}/>
+                                    <Card.Body>
+                                        <Card.Title key={element.circuitId}>
+                                            Name:{" "}
+                                            {element.circuitName}
+                                        </Card.Title>
+                                        <Card.Text>
+                                            Location:{" "}
+                                            {element.locality}
+                                            <br></br>
+                                            Country:{" "}
+                                            {element.country}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    }  )
+                }
                 </Row>
             </div>
         </div>

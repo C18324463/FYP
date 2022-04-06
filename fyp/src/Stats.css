@@ -100,3 +100,20 @@
 #logo {
     margin-left: 5%;
 }
+
+#input {
+    width: 80%;
+    height: 50%;
+    box-sizing: border-box;
+    border: 2px solid red;
+    border-radius: 0.6em;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#input:focus {
+    outline: red;
+}

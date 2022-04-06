@@ -99,3 +99,21 @@
 #logo {
     margin-left: 5%;
 }
+
+#input1 {
+    width: 65%;
+    height: 50%;
+    box-sizing: border-box;
+    border: 2px solid red;
+    border-radius: 0.6em;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 25px;
+    margin-left: 25%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#input1:focus {
+    outline: red;
+}

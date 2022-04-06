@@ -8,8 +8,13 @@ import logo from "./img/logo512.png";
 
 function Info_Constructors() {
     let counter = -1;
-    const [show, setShow] = useState(false) 
-    const [info, setInfo] = useState([]);
+    let number = 0
+    let info = [];
+    let x = [];
+    const [show, setShow] = useState(false);
+    const [teamSearch, setTeamSearch] = useState("");
+    const [search, setSearch] = useState([]);
+    const [answer, setAnswer] = useState([]);
     var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -20,13 +25,37 @@ function Info_Constructors() {
           await fetch(`http://ergast.com/api/f1/2022/constructors.json`, requestOptions)
           .then(response => response.text())
           .then(response2 => JSON.parse(response2))
-          .then(result => setInfo(result))
+          .then(result => info = result)
           .catch(error => console.log('error', error));
         };
         fetchData();
+
+        setTimeout (() => {
+            console.log(info);
+            console.log(x);
+            for(number = 0; number < info.MRData?.ConstructorTable?.Constructors.length; number++) {
+                var obj = {};
+                obj.img = team_images[number];
+                obj.name = info.MRData?.ConstructorTable?.Constructors[number].name;
+                obj.nationality = info.MRData?.ConstructorTable?.Constructors[number].nationality;
+                obj.constructorId = info.MRData?.ConstructorTable?.Constructors[number].constructorId;
+                x.push(obj);
+            }
+            console.log(x);
+            setAnswer(x);
+        }, 1000)
+
     }, []);
 
+    useEffect(() => {
+        console.log(answer);
+        setSearch(answer?.filter((element) => element.name.toLowerCase().includes(teamSearch.toLowerCase())));
+    }, [teamSearch])
+
+    console.log(x);
     console.log(info);
+    console.log(search);
+    console.log(answer);
 
     function openDrivers() {
         console.log("const");
@@ -89,31 +118,58 @@ function Info_Constructors() {
                 <Col className='col-sm-2 text-center'>
                     <button className='info_tracks' onClick={() => openTracks()}>Tracks</button>
                 </Col>
+                <Col className='col-sm-3 text-center'>
+                    <input id='input' type="text" placeholder="Search..." onInput={(e) => setTeamSearch(e.target.value)}/>
+                </Col>
             </Row>
             <br></br>
             <div>
                 <Row>
-                {info.MRData?.ConstructorTable?.Constructors.map(element => {
-                    counter = counter + 1;
-                    return (
-                        <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
-                            <Card className='card' border='danger'>
-                                <Card.Img className='img' variant="top" src={team_images[counter]}/>
-                                <Card.Body>
-                                    <Card.Title key={element.constructorId}>
-                                        Team:{" "}
-                                        {element.name}
-                                    </Card.Title>
-                                    <Card.Text>
-                                        Nationality:{" "}
-                                        {element.nationality}
-                                        <br></br>
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )
-                }  )}
+                {teamSearch ?
+                    search?.map(element => {
+                        counter = counter + 1;
+                        return (
+                            <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
+                                <Card className='card' border='danger'>
+                                    <Card.Img className='img' variant="top" src={element.img}/>
+                                    <Card.Body>
+                                        <Card.Title key={element.constructorId}>
+                                            Team:{" "}
+                                            {element.name}
+                                        </Card.Title>
+                                        <Card.Text>
+                                            Nationality:{" "}
+                                            {element.nationality}
+                                            <br></br>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    }  )
+                    :
+                    answer?.map(element => {
+                        counter = counter + 1;
+                        return (
+                            <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
+                                <Card className='card' border='danger'>
+                                    <Card.Img className='img' variant="top" src={element.img}/>
+                                    <Card.Body>
+                                        <Card.Title key={element.constructorId}>
+                                            Team:{" "}
+                                            {element.name}
+                                        </Card.Title>
+                                        <Card.Text>
+                                            Nationality:{" "}
+                                            {element.nationality}
+                                            <br></br>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    }  )
+                }
                 </Row>
             </div>
         </div>
