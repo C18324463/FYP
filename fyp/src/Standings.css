@@ -29,7 +29,7 @@
 
 #sidenav {
     height: 100vh;
-    position: absolute; 
+    position: absolute;
     z-index: 1; 
     top: 0; 
     left: 0; 
@@ -61,10 +61,13 @@
 
 #sidenav .closebtn {
     position: absolute;
-    top: 0;
-    left: 0px;
+    top: 3.9%;
+    left: 2%;
     font-size: 25px;
     margin-right: 50px;
+    color: white;
+    background-color: black;
+    width: 15%;
 }
 
 .search {
@@ -78,10 +81,48 @@
 }
 
 .openBtn {
-    width: 120px;
-    font-size: 25px;
+    width: 130px;
+    font-size: 26px;
+    color: white;
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    background-color: black;
 }
 
-#logo {
-    margin-left: 5%;
+#logo1 {
+    margin-left: 12%;
+}
+
+#title1 {
+    background-color: #fc4444;
+    height: 80px;
+    width: 104.7%;
+    border: 2px solid black;
+}
+
+#universe1 {
+    width: 20%;
+    margin-left: 39%;
+    font-size: 3.2rem;
+    padding-top: 5px;
+    color: black;
+}
+
+#title_side1 {
+    background-color: #fc4444;
+    height: 80px;
+    width: 84.7%;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    margin-left: 20%;
+}
+
+#universe_side1 {
+    width: 25%;
+    margin-left: 32%;
+    font-size: 3.2rem;
+    padding-top: 5px;
+    color: black;
 }

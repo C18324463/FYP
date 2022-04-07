@@ -56,20 +56,24 @@ export default function Schedule(){
     return(
         <div>
             {show === true? 
-                <div id="sidenav">
-                    <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                    <img id='logo' src={logo}/>
-                    <br></br>
-                    <br></br>
-                    <a href="#" onClick={Home}>Home</a>
-                    <a href="#" onClick={Schedule}>Schedule</a>
-                    <a href="#" onClick={F1Live}>F1 Live</a>
-                    <a href="#" onClick={Standings}>Standings</a>
-                    <a href="#" onClick={Information}>Information</a>
-                </div> 
+                <>
+                    <div id="sidenav">
+                        <button className="closebtn" onClick={() => setShow(false)}>X</button>     
+                        <img id='logo1' src={logo}/>
+                        <a href="#" onClick={Home}>Home</a>
+                        <a href="#" onClick={Schedule}>Schedule</a>
+                        <a href="#" onClick={F1Live}>F1 Live</a>
+                        <a href="#" onClick={Standings}>Standings</a>
+                        <a href="#" onClick={Information}>Information</a>
+                    </div>
+                    <div id='title_side1'>
+                        <h1 id='universe_side1'>F1 UNIVERSE</h1>
+                    </div>
+                </>
                 : 
-                <div>
+                <div id='title1'>
                     <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                    <h1 id='universe1'>F1 UNIVERSE</h1>
                 </div>
             }
             <br></br>

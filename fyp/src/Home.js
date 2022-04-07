@@ -8,6 +8,7 @@ import logo from "./img/logo512.png";
 
 export default function Home(){
     const [show, setShow] = useState(false);
+    const [showBar, setShowBar] = useState("none");
     const [search, setSearch] = useState("Formula1");
     const [results, setResults] = useState([]);
     const options = {
@@ -61,28 +62,26 @@ export default function Home(){
     return(
         <div>
             {show === true? 
-                <div className="sidenav">
-                    <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                    <br></br>
-                    <img id='logo1' src={logo}/>
-                    <br></br>
-                    <a href="#" onClick={Home}>Home</a>
-                    <a href="#" onClick={Schedule}>Schedule</a>
-                    <a href="#" onClick={F1Live}>F1 Live</a>
-                    <a href="#" onClick={Standings}>Standings</a>
-                    <a href="#" onClick={Information}>Information</a>
-                </div>
-                :
-                <div>
-                    <div id='title1'>
-                        <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
-                        <h1 id='universe1'>F1 UNIVERSE</h1>
+                <>
+                    <div className="sidenav">
+                        <button className="closebtn" onClick={() => setShow(false)}>X</button>
+                        <img id='logo1' src={logo}/>
+                        <a href="#" onClick={Home}>Home</a>
+                        <a href="#" onClick={Schedule}>Schedule</a>
+                        <a href="#" onClick={F1Live}>F1 Live</a>
+                        <a href="#" onClick={Standings}>Standings</a>
+                        <a href="#" onClick={Information}>Information</a>
                     </div>
+                    <div id='title_side1'>
+                        <h1 id='universe_side1'>F1 UNIVERSE</h1>
+                    </div>
+                </>
+                :
+                <div id='title1'>
+                    <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                    <h1 id='universe1'>F1 UNIVERSE</h1>
                 </div>
             }
-            <div id='title_side1'>
-                <h1 id='universe_side1'>F1 UNIVERSE</h1>
-            </div>
             <br></br>
             <Row id='row'>
                 {results.map(element => {

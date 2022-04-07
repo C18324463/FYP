@@ -28,8 +28,8 @@
     outline: 0;
 }
 
-#logo {
-    margin-left: 5%;
+#logo1 {
+    margin-left: 12%;
 }
 
 #input {
@@ -47,4 +47,90 @@
 
 #input:focus {
     outline: red;
+}
+
+#title1 {
+    background-color: #fc4444;
+    height: 80px;
+    width: 104.7%;
+    border: 2px solid black;
+}
+
+#universe1 {
+    width: 20%;
+    margin-left: 39%;
+    font-size: 3.2rem;
+    padding-top: 5px;
+    color: black;
+}
+
+#title_side1 {
+    background-color: #fc4444;
+    height: 80px;
+    width: 84.7%;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    margin-left: 20%;
+}
+
+#universe_side1 {
+    width: 25%;
+    margin-left: 32%;
+    font-size: 3.2rem;
+    padding-top: 5px;
+    color: black;
+}
+
+.sidenav {
+    height: 100vh;
+    position: absolute; 
+    z-index: 1; 
+    top: 0; 
+    left: 0; 
+    background-color:#fc4444;
+    overflow-x: hidden;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    position: sticky;
+    width: 20%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    float: left;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn1 {
+    position: absolute;
+    top: 3.9%;
+    left: 2%;
+    font-size: 25px;
+    margin-right: 50px;
+    color: white;
+    background-color: black;
+    width: 15%;
+}
+
+.openBtn {
+    width: 130px;
+    font-size: 26px;
+    color: white;
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    background-color: black;
 }

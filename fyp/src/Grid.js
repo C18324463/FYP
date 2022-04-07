@@ -51,14 +51,11 @@ function Grid(){
       for(index4 = 0; index4< live.results?.speed?.top_speeds[2]?.drivers.length; index4++) {
         array4[index4] = [live.results?.speed?.top_speeds[2].drivers[index4]];
       } 
-
-      ///////////////////
       console.log(array);
       console.log(array2);
       console.log(array3);
       console.log(array4);
 
-    ///////////////////////////////////////////////////////////////////////////
     function Home(){
         console.log("hi");
         window.location = "/"
@@ -116,22 +113,27 @@ function Grid(){
     return(
         <div>
           {show === true? 
-            <div id="sidenav">
-                <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                <img id='logo' src={logo}/>
-                <br></br>
-                <br></br>
-                <a href="#" onClick={Home}>Home</a>
-                <a href="#" onClick={Schedule}>Schedule</a>
-                <a href="#" onClick={F1Live}>F1 Live</a>
-                <a href="#" onClick={Standings}>Standings</a>
-                <a href="#" onClick={Information}>Information</a>
-            </div> 
+            <>
+              <div id="sidenav">
+                  <button className="closebtn" onClick={() => setShow(false)}>X</button>     
+                  <img id='logo1' src={logo}/>
+                  <a href="#" onClick={Home}>Home</a>
+                  <a href="#" onClick={Schedule}>Schedule</a>
+                  <a href="#" onClick={F1Live}>F1 Live</a>
+                  <a href="#" onClick={Standings}>Standings</a>
+                  <a href="#" onClick={Information}>Information</a>
+              </div>
+              <div id='title_side1'>
+                  <h1 id='universe_side1'>F1 UNIVERSE</h1>
+              </div>
+            </> 
             : 
-            <div>
+            <div id='title1'>
                 <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                <h1 id='universe1'>F1 UNIVERSE</h1>
             </div>
           }
+          <br></br>
           <Row>
             <Col>
                 <button id='button' onClick={F1Live}>FP1</button>

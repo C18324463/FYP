@@ -11,6 +11,7 @@
     float: left;
     border: 1px solid red;
     border-collapse: collapse;
+    margin-right: 1%;
 }
 
 .img2 {
@@ -23,7 +24,6 @@
 #row {
     --bs-gutter-x: 0rem;
     margin-left: 10%;
-    display: flex;
 }
 
 .sidenav {
@@ -60,10 +60,13 @@
 
 .sidenav .closebtn1 {
     position: absolute;
-    top: 0;
-    left: 0px;
+    top: 3.9%;
+    left: 2%;
     font-size: 25px;
     margin-right: 50px;
+    color: white;
+    background-color: black;
+    width: 15%;
 }
 
 .openBtn {
@@ -77,7 +80,7 @@
 }
 
 #logo1 {
-    margin-left: 5%;
+    margin-left: 12%;
 }
 
 #title1 {
