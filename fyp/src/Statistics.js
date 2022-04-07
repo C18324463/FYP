@@ -106,9 +106,7 @@ function Statistics(){
                 <>
                     <div className="sidenav">
                         <button className="closebtn" onClick={() => setShow(false)}>X</button>     
-                        <img id='logo' src={logo}/>
-                        <br></br>
-                        <br></br>
+                        <img id='logo1' src={logo}/>
                         <a href="#" onClick={Home}>Home</a>
                         <a href="#" onClick={Schedule}>Schedule</a>
                         <a href="#" onClick={F1Live}>F1 Live</a>
@@ -119,7 +117,7 @@ function Statistics(){
                         <h1 id='universe_side1'>F1 UNIVERSE</h1>
                     </div> 
                 </>
-                : 
+                :
                 <div id='title1'>
                     <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
                     <h1 id='universe1'>F1 UNIVERSE</h1>

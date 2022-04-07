@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Constructors.css';
-import {Table} from 'react-bootstrap';
+import {Table, Col, Row} from 'react-bootstrap';
 import "firebase/database";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./img/logo512.png";
@@ -80,7 +80,11 @@ function Constructors() {
             </div>
           }
           <br></br>
-          <button id='drivers' className='justify-content-center' onClick={() => openDrivers()} style={{marginLeft: "47%"}}>Drivers</button>
+          <Row className='justify-content-center'>
+            <Col className='col-sm-3 text-center'>
+              <button id='drivers' className='justify-content-center' onClick={() => openDrivers()} style={{marginLeft: "25%"}}>Drivers</button>
+            </Col>
+          </Row>
           <br></br>
           <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
             <thead>

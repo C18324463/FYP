@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Standings.css';
-import {Table} from 'react-bootstrap';
+import {Table, Col, Row} from 'react-bootstrap';
 import "firebase/database";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./img/logo512.png";
@@ -72,14 +72,18 @@ function Standings(){
               <h1 id='universe_side1'>F1 UNIVERSE</h1>
           </div>
         </>
-        : 
+        :
         <div id='title1'>
             <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
             <h1 id='universe1'>F1 UNIVERSE</h1>
         </div>
       }
       <br></br>
-      <button id='constructors' className='justify-content-center' onClick={() => openConstructors()} style={{marginLeft: "45%"}}>Constructors</button>
+      <Row className='justify-content-center'>
+        <Col className='col-sm-3 text-center'>
+          <button id='constructors' className='justify-content-center' onClick={() => openConstructors()} style={{marginLeft: "20%"}}>Constructors</button>
+        </Col>
+      </Row>
       <br></br>
         <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
           <thead>
