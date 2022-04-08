@@ -7,6 +7,9 @@ import logo from "./img/logo512.png";
 
 export default function Schedule(){
     let counter = -1;
+    let num = 0;
+    let time_old = [];
+    let time_new = [];
     const [show, setShow] = useState(false);
     const [schedule, setSchedule] = useState([]);
     var requestOptions = {
@@ -25,8 +28,11 @@ export default function Schedule(){
       fetchData();
     }, []);
 
-    console.log(schedule);
-
+    for (num=0; num < schedule.MRData?.RaceTable?.Races.length; num++) {
+        time_old[num] = schedule.MRData?.RaceTable?.Races[num].time;
+        time_new[num] = time_old[num].slice(0, 8);
+    }
+    
     function Home(){
         console.log("hi");
         window.location = "/"
@@ -97,7 +103,7 @@ export default function Schedule(){
                                     {element.date}
                                 </td>
                                 <td key={element.time} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                    {element.time}
+                                    {time_new[counter]}
                                 </td>
                                 <td key={element.Circuit.circuitName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                                     {element.Circuit.circuitName}
