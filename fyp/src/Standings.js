@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Standings.css';
 import {Table, Col, Row} from 'react-bootstrap';
-import "firebase/database";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./img/logo512.png";
 

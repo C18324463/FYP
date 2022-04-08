@@ -3,7 +3,6 @@ import {Table} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import './Schedule.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "firebase/database";
 import logo from "./img/logo512.png";
 
 export default function Schedule(){

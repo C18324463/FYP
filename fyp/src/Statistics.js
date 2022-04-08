@@ -3,7 +3,6 @@ import './Stats.css';
 import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import driver_images from "./img/driver_images";
-import "firebase/database";
 import logo from "./img/logo512.png";
 
 function Statistics(){

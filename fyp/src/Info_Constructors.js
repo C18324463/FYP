@@ -3,7 +3,6 @@ import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import team_images from "./img/team_images";
 import './Info_Constructors.css';
-import "firebase/database";
 import logo from "./img/logo512.png";
 
 function Info_Constructors() {

@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './Home.css';
 import './App.js';
-import {Card, Image, Row} from 'react-bootstrap';
+import {Card, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "firebase/database";
 import logo from "./img/logo512.png";
 
 export default function Home(){

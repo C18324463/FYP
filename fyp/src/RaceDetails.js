@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
-import "firebase/database";
 import './RaceDetails.css';
 import logo from "./img/logo512.png";
 
@@ -88,7 +87,11 @@ function RaceDetails(){
                                     {" "}
                                     {element.Circuit.circuitName}
                                     {" "}
+                                    at
+                                    {" "}
                                     {element.time}
+                                    {" "}
+                                    on
                                     {" "}
                                     {element.date}
                                 </th>

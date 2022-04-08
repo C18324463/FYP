@@ -3,7 +3,6 @@ import './Info_Tracks.css';
 import {Card, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import track_images from "./img/track_images";
-import "firebase/database";
 import logo from "./img/logo512.png";
 
 function Info_Tracks() {
