@@ -117,13 +117,23 @@ function RaceDetails(){
                             </tr>
                             <br></br>
                             <tr>
-                                <td key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                    Third Practice:
-                                    {" "} 
-                                    {element.ThirdPractice.time}
-                                    {" "}
-                                    {element.ThirdPractice.date}
-                                </td>
+                                {element.ThirdPractice !== undefined ? 
+                                    <td key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                                        Third Practice:
+                                        {" "} 
+                                        {element.ThirdPractice.time}
+                                        {" "}
+                                        {element.ThirdPractice.date}
+                                    </td>
+                                :
+                                    <td key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
+                                        Sprint:
+                                        {" "} 
+                                        {element.Sprint.time}
+                                        {" "}
+                                        {element.Sprint.date}
+                                    </td>
+                                }
                             </tr>
                             <br></br>
                             <tr>
