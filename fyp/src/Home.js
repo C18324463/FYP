@@ -30,9 +30,11 @@ export default function Home(){
         fetchData();
     }, []);
 
-    // .slice(0).reverse()
-
     console.log(results);
+
+    function pageRefresh() {
+        window.location.reload(false);
+    };
 
     function Home(){
         console.log("hi");
@@ -73,12 +75,14 @@ export default function Home(){
                         <a href="#" onClick={Information}>Information</a>
                     </div>
                     <div id='title_side1'>
+                        <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                         <h1 id='universe_side1'>F1 UNIVERSE</h1>
                     </div>
                 </>
                 :
                 <div id='title1'>
                     <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                    <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                     <h1 id='universe1'>F1 UNIVERSE</h1>
                 </div>
             }

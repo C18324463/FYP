@@ -18,7 +18,7 @@ function F1Live(){
 
     useEffect(() => {
         const fetchData = async () => {
-          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3113`, options)
+          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3122`, options)
           .then(response => response.json())
           .then(result => setLive(result))
           .catch(error => console.log('error', error));
@@ -26,31 +26,35 @@ function F1Live(){
         fetchData();
       }, []);
 
-      console.log(live);
-      let array = [];
-      let array2 = [];
-      let array3 = [];
-      let array4 = [];
-      let index = 0;
-      let index2 = 0;
-      let index3 = 0;
-      let index4 = 0;
+    console.log(live);
+    let array = [];
+    let array2 = [];
+    let array3 = [];
+    let array4 = [];
+    let index = 0;
+    let index2 = 0;
+    let index3 = 0;
+    let index4 = 0;
 
-      for(index = 0; index < live.results?.drivers.length; index++) {
-        array[index] = [live.results?.drivers[index]];
-      }
+    for(index = 0; index < live.results?.drivers.length; index++) {
+      array[index] = [live.results?.drivers[index]];
+    }
 
-      for(index2 = 0; index2< live.results?.speed?.top_speeds[0]?.drivers.length; index2++) {
-        array2[index2] = [live.results?.speed?.top_speeds[0].drivers[index2]];
-      } 
+    for(index2 = 0; index2< live.results?.speed?.top_speeds[0]?.drivers.length; index2++) {
+      array2[index2] = [live.results?.speed?.top_speeds[0].drivers[index2]];
+    } 
 
-      for(index3 = 0; index3< live.results?.speed?.top_speeds[1]?.drivers.length; index3++) {
-        array3[index3] = [live.results?.speed?.top_speeds[1].drivers[index3]];
-      } 
+    for(index3 = 0; index3< live.results?.speed?.top_speeds[1]?.drivers.length; index3++) {
+      array3[index3] = [live.results?.speed?.top_speeds[1].drivers[index3]];
+    } 
 
-      for(index4 = 0; index4< live.results?.speed?.top_speeds[2]?.drivers.length; index4++) {
-        array4[index4] = [live.results?.speed?.top_speeds[2].drivers[index4]];
-      } 
+    for(index4 = 0; index4< live.results?.speed?.top_speeds[2]?.drivers.length; index4++) {
+      array4[index4] = [live.results?.speed?.top_speeds[2].drivers[index4]];
+    } 
+
+    function pageRefresh() {
+        window.location.reload(false);
+    };
 
     function Home(){
         console.log("hi");
@@ -119,12 +123,14 @@ function F1Live(){
                   <a href="#" onClick={Information}>Information</a>
               </div>
               <div id='title_side1'>
+                  <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                   <h1 id='universe_side1'>F1 UNIVERSE</h1>
               </div>
             </>
             : 
             <div id='title1'>
                 <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                 <h1 id='universe1'>F1 UNIVERSE</h1>
             </div>
           }

@@ -18,7 +18,7 @@ function FP2(){
 
     useEffect(() => {
         const fetchData = async () => {
-          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3114`, options)
+          await fetch(`https://f1-live-motorsport-data.p.rapidapi.com/session/3123`, options)
           .then(response => response.json())
           .then(result => setLive(result))
           .catch(error => console.log('error', error));
@@ -52,6 +52,10 @@ function FP2(){
         array4[index4] = [live.results?.speed?.top_speeds[2].drivers[index4]];
       } 
 
+    function pageRefresh() {
+      window.location.reload(false);
+    };
+    
     function Home(){
         console.log("hi");
         window.location = "/"
@@ -119,12 +123,14 @@ function FP2(){
                   <a href="#" onClick={Information}>Information</a>
               </div> 
               <div id='title_side1'>
+                  <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                   <h1 id='universe_side1'>F1 UNIVERSE</h1>
               </div>
             </>
             : 
             <div id='title1'>
                 <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                 <h1 id='universe1'>F1 UNIVERSE</h1>
             </div>
           }

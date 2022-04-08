@@ -97,3 +97,13 @@
     padding-top: 5px;
     color: black;
 }
+
+#refreshButton {
+    width: 130px;
+    font-size: 26px;
+    color: white;
+    float: right;
+    margin-top: 15px;
+    margin-right: 10px;
+    background-color: black;
+}

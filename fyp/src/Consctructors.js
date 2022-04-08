@@ -25,7 +25,11 @@ function Constructors() {
     }, []);
 
     console.log(results);
-
+    
+    function pageRefresh() {
+      window.location.reload(false);
+    };
+    
     function openDrivers() {
         console.log("const");
         window.location = "/standings/drivers_champ"
@@ -70,12 +74,14 @@ function Constructors() {
                   <a href="#" onClick={Information}>Information</a>
               </div> 
               <div id='title_side1'>
+                  <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                   <h1 id='universe_side1'>F1 UNIVERSE</h1>
               </div>
             </>
             : 
             <div id='title1'>
                 <button className='openBtn' onClick={() => setShow(true)}>&#9776; Open</button>
+                <button id='refreshButton' onClick={pageRefresh}>Refresh</button>
                 <h1 id='universe1'>F1 UNIVERSE</h1>
             </div>
           }
