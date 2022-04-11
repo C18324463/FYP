@@ -25,7 +25,7 @@ function Q2(){
         fetchData();
       }, []);
 
-    console.log(live);
+    console.log(live.results?.drivers);
     let array = [];
     let array2 = [];
     let array3 = [];
@@ -35,7 +35,7 @@ function Q2(){
     let index3 = 0;
     let index4 = 0;
 
-    for(index = 0; index < live.results?.drivers.length; index++) {
+    for(index = 0; index < (live.results?.drivers.length - 5); index++) {
       array[index] = [live.results?.drivers[index]];
     }
 

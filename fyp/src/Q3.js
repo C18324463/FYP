@@ -35,7 +35,7 @@ function Q3(){
     let index3 = 0;
     let index4 = 0;
 
-    for(index = 0; index < live.results?.drivers.length; index++) {
+    for(index = 0; index < (live.results?.drivers.length - 10); index++) {
       array[index] = [live.results?.drivers[index]];
     }
 
