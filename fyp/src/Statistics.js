@@ -145,7 +145,7 @@ function Statistics(){
                             return (
                                 <Col className='col-sm-3' style={{marginBottom: "20px"}}>
                                     <Card className='card' border="danger">
-                                        <Card.Img className='img' variant="top" src={element.img}/>
+                                        <Card.Img id='imgs' variant="top" src={element.img}/>
                                         <Card.Body>
                                             <Card.Title key={element.driverId}>
                                                 Name:

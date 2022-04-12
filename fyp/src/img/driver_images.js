@@ -17,11 +17,11 @@ import Russell from "./russell.jpg";
 import Sainz from "./sainz.jpg";
 import Stroll from "./stroll.jpg";
 import Tsunoda from "./tsunoda.jpg";
-//import Vettel from "./vettel.jpg";
+import Vettel from "./vettel.jpg";
 import Zhou from "./zhou.jpg";
 
 
 const driver_images = [Albon, Alonso, Bottas, Gasly, Hamilton, Hulkenburg, Latifi, Leclerc, Magnussen,
-    Norris, Ocon, Perez, Ricciardo, Russell, Sainz, Schumacher, Stroll, Tsunoda, Verstappen, Zhou];
+    Norris, Ocon, Perez, Ricciardo, Russell, Sainz, Schumacher, Stroll, Tsunoda, Verstappen, Vettel, Zhou];
 
 export default driver_images;
