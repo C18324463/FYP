@@ -10,6 +10,8 @@ export default function Schedule(){
     let num = 0;
     let time_old = [];
     let time_new = [];
+    let date_old = [];
+    let date_new = [];
     const [show, setShow] = useState(false);
     const [schedule, setSchedule] = useState([]);
     var requestOptions = {
@@ -31,6 +33,12 @@ export default function Schedule(){
     for (num=0; num < schedule.MRData?.RaceTable?.Races.length; num++) {
         time_old[num] = schedule.MRData?.RaceTable?.Races[num].time;
         time_new[num] = time_old[num].slice(0, 8);
+        date_old[num] = schedule.MRData?.RaceTable?.Races[num].date;
+        let a = date_old[num].slice(8, 10);
+        a += date_old[num].slice(4, 7);
+        a += "-";
+        a += date_old[num].slice(0, 4);
+        date_new[num] = a;
     }
     
     function Home(){
@@ -87,7 +95,7 @@ export default function Schedule(){
                     <tr>
                         <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Race Name</th>
                         <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Date</th>
-                        <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Time GMT</th>
+                        <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Time UTC</th>
                         <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Circuit</th>
                     </tr>
                 </thead>
@@ -100,7 +108,7 @@ export default function Schedule(){
                                     <Link to={{pathname:`/schedule/${index+1}`, state:{circuitId:index+1}}}>{element.raceName}</Link>
                                 </td>
                                 <td key={element.date} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
-                                    {element.date}
+                                    {date_new[counter]}
                                 </td>
                                 <td key={element.time} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
                                     {time_new[counter]}

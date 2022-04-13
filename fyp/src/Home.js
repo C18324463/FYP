@@ -89,7 +89,7 @@ export default function Home(){
             <Row id='row'>
                 {results.map(element => {
                 return (
-                    <Card className='card1' border="danger">
+                    <Card className='card1' border="danger" style={{backgroundColor: "#ffe6e6"}}>
                         <div>
                             <Card.Img className='img1' variant="top" src={element.image?.thumbnail?.contentUrl}/>
                             <Card.Body>

@@ -18,6 +18,18 @@ function RaceDetails(){
     let sprint_new = [];
     let quali_old = [];
     let quali_new = [];
+    let date_old = [];
+    let date_new = [];
+    let first_date = [];
+    let new_fdate = [];
+    let second_date = [];
+    let new_sdate = [];
+    let third_date = [];
+    let new_tdate = [];
+    let sprint_date = [];
+    let new_sprdate = [];
+    let quali_date = [];
+    let new_qdate = [];
     const {circuitId} = useParams();
     const [show, setShow] = useState(false);
     const [schedule, setSchedule] = useState([]);
@@ -42,19 +54,55 @@ function RaceDetails(){
     for (num=0; num < schedule.MRData?.RaceTable?.Races.length; num++) {
         time_old[num] = schedule.MRData?.RaceTable?.Races[num].time;
         time_new[num] = time_old[num].slice(0, 8);
+        date_old[num] = schedule.MRData?.RaceTable?.Races[num].date;
+        let a = date_old[num].slice(8, 10);
+        a += date_old[num].slice(4, 7);
+        a += "-";
+        a += date_old[num].slice(0, 4);
+        date_new[num] = a;
         first_old[num] = schedule.MRData?.RaceTable?.Races[num].FirstPractice.time;
         first_new[num] = first_old[num].slice(0, 8);
+        first_date[num] = schedule.MRData?.RaceTable?.Races[num].FirstPractice.date;
+        let b = first_date[num].slice(8, 10);
+        b += first_date[num].slice(4, 7);
+        b += "-";
+        b += first_date[num].slice(0, 4);
+        new_fdate[num] = b;
         second_old[num] = schedule.MRData?.RaceTable?.Races[num].SecondPractice.time;
         second_new[num] = second_old[num].slice(0, 8);
+        second_date[num] = schedule.MRData?.RaceTable?.Races[num].SecondPractice.date;
+        let c = second_date[num].slice(8, 10);
+        c += second_date[num].slice(4, 7);
+        c += "-";
+        c += second_date[num].slice(0, 4);
+        new_sdate[num] = c;
         if (schedule.MRData?.RaceTable?.Races[num].ThirdPractice != undefined) {
             third_old[num] = schedule.MRData?.RaceTable?.Races[num].ThirdPractice.time;
             third_new[num] = third_old[num].slice(0, 8);
+            third_date[num] = schedule.MRData?.RaceTable?.Races[num].ThirdPractice.date;
+            let d = third_date[num].slice(8, 10);
+            d += third_date[num].slice(4, 7);
+            d += "-";
+            d += third_date[num].slice(0, 4);
+            new_tdate[num] = d;
         } else {
             sprint_old[num] = schedule.MRData?.RaceTable?.Races[num].Sprint.time;
             sprint_new[num] = sprint_old[num].slice(0, 8);
+            sprint_date[num] = schedule.MRData?.RaceTable?.Races[num].Sprint.date;
+            let e = sprint_date[num].slice(8, 10);
+            e += sprint_date[num].slice(4, 7);
+            e += "-";
+            e += sprint_date[num].slice(0, 4);
+            new_sprdate[num] = e;
         }
         quali_old[num] = schedule.MRData?.RaceTable?.Races[num].Qualifying.time;
         quali_new[num] = quali_old[num].slice(0, 8);
+        quali_date[num] = schedule.MRData?.RaceTable?.Races[num].Qualifying.date;
+        let f = quali_date[num].slice(8, 10);
+        f += quali_date[num].slice(4, 7);
+        f += "-";
+        f += quali_date[num].slice(0, 4);
+        new_qdate[num] = f;
     }
 
     function Home(){
@@ -124,7 +172,7 @@ function RaceDetails(){
                                     {" "}
                                     on
                                     {" "}
-                                    {element.date}
+                                    {date_new}
                                 </th>
                             </tr>
                         </thead>
@@ -136,7 +184,7 @@ function RaceDetails(){
                                     {" "} 
                                     {first_new}
                                     {" "}
-                                    {element.FirstPractice.date}
+                                    {new_fdate}
                                 </td>
                             </tr>
                             <br></br>
@@ -146,7 +194,7 @@ function RaceDetails(){
                                     {" "} 
                                     {second_new}
                                     {" "}
-                                    {element.SecondPractice.date}
+                                    {new_sdate}
                                 </td>
                             </tr>
                             <br></br>
@@ -157,7 +205,7 @@ function RaceDetails(){
                                         {" "} 
                                         {third_new}
                                         {" "}
-                                        {element.ThirdPractice.date}
+                                        {new_tdate}
                                     </td>
                                 :
                                     <td key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
@@ -165,7 +213,7 @@ function RaceDetails(){
                                         {" "} 
                                         {sprint_new}
                                         {" "}
-                                        {element.Sprint.date}
+                                        {new_sprdate}
                                     </td>
                                 }
                             </tr>
@@ -176,7 +224,7 @@ function RaceDetails(){
                                     {" "} 
                                     {quali_new}
                                     {" "}
-                                    {element.Qualifying.date}
+                                    {new_qdate}
                                 </td>
                             </tr>
                             <br></br>
@@ -186,7 +234,7 @@ function RaceDetails(){
                                     {" "} 
                                     {time_new}
                                     {" "}
-                                    {element.date}
+                                    {date_new}
                                 </td>
                             </tr>
                         </tbody>
