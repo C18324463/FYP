@@ -90,7 +90,7 @@ export default function Schedule(){
                 </div>
             }
             <br></br>
-            <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "70%", margin: "auto", fontSize: "20px"}}>
+            <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "70%", margin: "auto", backgroundColor: "#fff0f0", fontSize: "20px"}}>
                 <thead>
                     <tr>
                         <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Race Name</th>

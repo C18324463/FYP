@@ -136,32 +136,32 @@ function FP2(){
           <br></br>
           <Row>
             <Col>
-                <button id='button' onClick={F1Live}>FP1</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={F1Live}>FP1</button>
             </Col>
             <Col>
-                <button id='button' onClick={FP2}>FP2</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={FP2}>FP2</button>
             </Col>
             <Col>
-                <button id='button' onClick={FP3}>FP3</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={FP3}>FP3</button>
             </Col>
             <Col>
-                <button id='button' onClick={Q1}>Q1</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={Q1}>Q1</button>
             </Col>
             <Col>
-                <button id='button' onClick={Q2}>Q2</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={Q2}>Q2</button>
             </Col>
             <Col>
-                <button id='button' onClick={Q3}>Q3</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={Q3}>Q3</button>
             </Col>
             <Col>
-                <button id='button' onClick={Grid}>Grid</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={Grid}>Grid</button>
             </Col>
             <Col>
-                <button id='button' onClick={Race}>Race</button>
+                <button id='button' style={{backgroundColor: "#fff0f0"}} onClick={Race}>Race</button>
             </Col>
           </Row>
           <br></br>
-          <Table id='live_standings'>
+          <Table id='live_standings' style={{backgroundColor: "#fff0f0"}}>
             <thead>
                 <tr>
                     <th id='header'>Position</th>
@@ -201,7 +201,7 @@ function FP2(){
           </Table>
           <br></br>
           <h1 id='label'>Sector 1 Top 6 Speeds</h1>
-          <Table id='speeds'>
+          <Table id='speeds' style={{backgroundColor: "#fff0f0"}}>
             <thead>
               <tr>
                 <th id='header'>Speed Position</th>
@@ -225,7 +225,7 @@ function FP2(){
           </Table>
           <br></br>
           <h1 id='label'>Sector 2 Top 6 Speeds</h1>
-          <Table id='speeds'>
+          <Table id='speeds' style={{backgroundColor: "#fff0f0"}}>
             <thead>
               <tr>
                 <th id='header'>Speed Position</th>
@@ -249,7 +249,7 @@ function FP2(){
           </Table>
           <br></br>
           <h1 id='label'>Sector 3 Top 6 Speeds</h1>
-          <Table id='speeds'>
+          <Table id='speeds' style={{backgroundColor: "#fff0f0"}}>
             <thead>
               <tr>
                 <th id='header'>Speed Position</th>

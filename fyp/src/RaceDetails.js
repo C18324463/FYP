@@ -156,7 +156,7 @@ function RaceDetails(){
             <br></br>
             {schedule.MRData?.RaceTable?.Races.map(function(element) {
                 return (
-                    <Table id='race_info' style={{ border: "1px solid black", borderCollapse: "collapse", width: "70%", margin: "auto", fontSize: "20px"}}>
+                    <Table id='race_info' style={{ border: "1px solid black", borderCollapse: "collapse", backgroundColor: "#fff0f0", width: "70%", margin: "auto", fontSize: "20px"}}>
                         <thead>
                             <tr>
                                 <th key={element.raceName} style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>
