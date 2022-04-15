@@ -7,7 +7,6 @@ import logo from "./img/logo512.png";
 
 export default function Home(){
     const [show, setShow] = useState(false);
-    const [showBar, setShowBar] = useState("none");
     const [search, setSearch] = useState("Formula1");
     const [results, setResults] = useState([]);
     const options = {

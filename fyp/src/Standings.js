@@ -86,11 +86,11 @@ function Standings(){
       <br></br>
       <Row className='justify-content-center'>
         <Col className='col-sm-3 text-center'>
-          <button id='constructors' className='justify-content-center' onClick={() => openConstructors()} style={{marginLeft: "20%"}}>Constructors</button>
+          <button id='constructors' className='justify-content-center' onClick={() => openConstructors()} style={{marginLeft: "20%", backgroundColor: "#fff0f0"}}>Constructors</button>
         </Col>
       </Row>
       <br></br>
-        <Table id='table_standings' style={{ border: "1px solid black", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
+        <Table id='table_standings' style={{ border: "1px solid black", backgroundColor: "#fff0f0", borderCollapse: "collapse", width: "50%", margin: "auto", fontSize: "20px"}}>
           <thead>
             <tr>
               <th style={{ border: "1px solid black", borderCollapse: "collapse", marginLeft: "auto", marginRight: "auto", fontSize: "20px", padding: "10px"}}>Position</th>

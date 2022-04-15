@@ -121,13 +121,13 @@ function Info_Tracks() {
             <br></br>
             <Row className='justify-content-center'>
                 <Col className='col-sm-2 text-center'>
-                    <button className='info_drivers' onClick={() => openDrivers()}>Drivers</button>
+                    <button className='info_drivers' style={{backgroundColor: "#fff0f0"}} onClick={() => openDrivers()}>Drivers</button>
                 </Col>
                 <Col className='col-sm-2 text-center'>
-                    <button className='info_constructors' onClick={() => openConstructors()}>Constructors</button>
+                    <button className='info_constructors' style={{backgroundColor: "#fff0f0"}} onClick={() => openConstructors()}>Constructors</button>
                 </Col>
                 <Col className='col-sm-3 text-center'>
-                    <input id='input1' type="text" placeholder="Search..." onInput={(e) => setTrackSearch(e.target.value)}/>
+                    <input id='input1' type="text" style={{backgroundColor: "#fff0f0"}} placeholder="Search..." onInput={(e) => setTrackSearch(e.target.value)}/>
                 </Col>
             </Row>
             <br></br>
@@ -139,8 +139,8 @@ function Info_Tracks() {
                         return (
                             <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
                                 <Card className='card' border='danger'>
-                                    <Card.Img className='img' variant="top" src={element.img}/>
-                                    <Card.Body>
+                                    <Card.Img className='img' variant="top" style={{backgroundColor: "#fff7f7"}} src={element.img}/>
+                                    <Card.Body style={{backgroundColor: "#fff0f0"}}>
                                         <Card.Title key={element.circuitId}>
                                             Name:{" "}
                                             {element.circuitName}
@@ -162,9 +162,9 @@ function Info_Tracks() {
                         counter = counter + 1;
                         return (
                             <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
-                                <Card className='card' border='danger'>
-                                    <Card.Img className='img' variant="top" src={element.img}/>
-                                    <Card.Body>
+                                <Card className='card' border='danger' >
+                                    <Card.Img className='img' variant="top" style={{backgroundColor: "#fff7f7"}} src={element.img}/>
+                                    <Card.Body style={{backgroundColor: "#fff0f0"}}>
                                         <Card.Title key={element.circuitId}>
                                             Name:{" "}
                                             {element.circuitName}

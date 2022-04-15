@@ -125,13 +125,13 @@ function Statistics(){
             <br></br>
             <Row className='justify-content-center'>
                 <Col className='col-sm-3 text-center' style={{marginLeft: "8%"}}>
-                    <button className='info_constructors' onClick={() => openConstructors()}>Constructors</button>
+                    <button className='info_constructors' style={{backgroundColor: "#fff0f0"}} onClick={() => openConstructors()}>Constructors</button>
                 </Col>
                 <Col className='col-sm-3 text-center'>
-                    <button className='info_tracks' onClick={() => openTracks()}>Tracks</button>
+                    <button className='info_tracks'  style={{backgroundColor: "#fff0f0"}}onClick={() => openTracks()}>Tracks</button>
                 </Col>
                 <Col className='col-sm-3 text-center'>
-                    <input id='input' type="text" placeholder="Search..." onInput={(e) => setDriverSearch(e.target.value)}/>
+                    <input id='input' type="text" placeholder="Search..." style={{backgroundColor: "#fff0f0"}} onInput={(e) => setDriverSearch(e.target.value)}/>
                 </Col>
             </Row>
             <br></br>
@@ -144,7 +144,7 @@ function Statistics(){
                             counter = counter + 1;
                             return (
                                 <Col className='col-sm-3' style={{marginBottom: "20px"}}>
-                                    <Card className='card' border="danger">
+                                    <Card className='card' border="danger" style={{backgroundColor: "#fff0f0"}}>
                                         <Card.Img id='imgs' variant="top" src={element.img}/>
                                         <Card.Body>
                                             <Card.Title key={element.driverId}>
@@ -175,7 +175,7 @@ function Statistics(){
                             counter = counter + 1;
                             return (
                                 <Col className='col-sm-3' style={{marginBottom: "20px"}}>
-                                    <Card className='card' border="danger">
+                                    <Card className='card' border="danger" style={{backgroundColor: "#fff0f0"}}>
                                         <Card.Img className='img' variant="top" src={element.img}/>
                                         <Card.Body>
                                             <Card.Title key={element.driverId}>

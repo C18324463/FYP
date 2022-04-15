@@ -118,13 +118,13 @@ function Info_Constructors() {
             <br></br>
             <Row className='justify-content-center'>
                 <Col className='col-sm-2 text-center'>
-                    <button className='info_drivers' onClick={() => openDrivers()}>Drivers</button>
+                    <button className='info_drivers' style={{backgroundColor: "#fff0f0"}} onClick={() => openDrivers()}>Drivers</button>
                 </Col>
                 <Col className='col-sm-2 text-center'>
-                    <button className='info_tracks' onClick={() => openTracks()}>Tracks</button>
+                    <button className='info_tracks'  style={{backgroundColor: "#fff0f0"}}onClick={() => openTracks()}>Tracks</button>
                 </Col>
                 <Col className='col-sm-3 text-center'>
-                    <input id='input' type="text" placeholder="Search..." onInput={(e) => setTeamSearch(e.target.value)}/>
+                    <input id='input' type="text" style={{backgroundColor: "#fff0f0"}} placeholder="Search..." onInput={(e) => setTeamSearch(e.target.value)}/>
                 </Col>
             </Row>
             <br></br>
@@ -136,8 +136,8 @@ function Info_Constructors() {
                         return (
                             <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
                                 <Card className='card' border='danger'>
-                                    <Card.Img className='img' variant="top" src={element.img}/>
-                                    <Card.Body>
+                                    <Card.Img className='img' variant="top" src={element.img} style={{backgroundColor: "#fff7f7"}}/>
+                                    <Card.Body style={{backgroundColor: "#fff0f0"}}>
                                         <Card.Title key={element.constructorId}>
                                             Team:{" "}
                                             {element.name}
@@ -157,9 +157,9 @@ function Info_Constructors() {
                         counter = counter + 1;
                         return (
                             <Col className='col-sm-3' style={{ marginBottom: "20px"}}>
-                                <Card className='card' border='danger'>
-                                    <Card.Img className='img' variant="top" src={element.img}/>
-                                    <Card.Body>
+                                <Card className='card' border='danger' style={{backgroundColor: "#fff0f0"}}>
+                                    <Card.Img className='img' variant="top" src={element.img} style={{backgroundColor: "#fff7f7"}}/>
+                                    <Card.Body style={{backgroundColor: "#fff0f0"}}>
                                         <Card.Title key={element.constructorId}>
                                             Team:{" "}
                                             {element.name}
