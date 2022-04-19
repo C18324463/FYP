@@ -18,7 +18,6 @@ import RaceDetails from "./RaceDetails";
 import {BrowserRouter, BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 export default function App() {
-
   return (
       <div className="app" style={{height: "auto", width: "1450px"}}>
         <BrowserRouter>

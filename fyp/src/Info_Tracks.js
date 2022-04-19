@@ -30,8 +30,6 @@ function Info_Tracks() {
         fetchData();
 
         setTimeout (() => {
-            console.log(info);
-            console.log(x);
             for(number = 0; number < info.MRData?.CircuitTable?.Circuits.length; number++) {
                 var obj = {};
                 obj.img = track_images[number];
@@ -42,56 +40,42 @@ function Info_Tracks() {
                 obj.circuitId = info.MRData?.CircuitTable?.Circuits[number].Location.circuitId;
                 x.push(obj);
             }
-            console.log(x);
             setAnswer(x);
         }, 1000)
 
     }, []);
 
     useEffect(() => {
-        console.log(answer);
         setSearch(answer?.filter((element) => element.circuitName.toLowerCase().includes(trackSearch.toLowerCase()) 
         || element.locality.toLowerCase().includes(trackSearch.toLowerCase())
         || element.country.toLowerCase().includes(trackSearch.toLowerCase())));
     }, [trackSearch])
 
-    console.log(x);
-    console.log(info);
-    console.log(search);
-    console.log(answer);
-
     function openDrivers() {
-        console.log("const");
         window.location = "/statistics/info_drivers"
     };
 
     function openConstructors() {
-        console.log("const");
         window.location = "/statistics/info_constructors"
     };
 
     function Home(){
-        console.log("hi");
         window.location = "/"
     };
 
     function Schedule(){
-        console.log("hi");
         window.location = "/schedule"
     };
 
     function F1Live(){
-        console.log("hi");
         window.location = "/f1-live/fp1"
     };
 
     function Standings(){
-        console.log("hi");
         window.location = "/standings/drivers_champ"
     };
 
     function Information(){
-        console.log("hi");
         window.location = "/statistics/info_drivers"
     };
 

@@ -30,8 +30,6 @@ function Info_Constructors() {
         fetchData();
 
         setTimeout (() => {
-            console.log(info);
-            console.log(x);
             for(number = 0; number < info.MRData?.ConstructorTable?.Constructors.length; number++) {
                 var obj = {};
                 obj.img = team_images[number];
@@ -40,55 +38,41 @@ function Info_Constructors() {
                 obj.constructorId = info.MRData?.ConstructorTable?.Constructors[number].constructorId;
                 x.push(obj);
             }
-            console.log(x);
             setAnswer(x);
         }, 1000)
 
     }, []);
 
     useEffect(() => {
-        console.log(answer);
         setSearch(answer?.filter((element) => element.name.toLowerCase().includes(teamSearch.toLowerCase())
         || element.nationality.toLowerCase().includes(teamSearch.toLowerCase())));
     }, [teamSearch])
 
-    console.log(x);
-    console.log(info);
-    console.log(search);
-    console.log(answer);
-
     function openDrivers() {
-        console.log("const");
         window.location = "/statistics/info_drivers"
     };
 
     function openTracks() {
-        console.log("const");
         window.location = "/statistics/info_tracks"
     };
 
     function Home(){
-        console.log("hi");
         window.location = "/"
     };
 
     function Schedule(){
-        console.log("hi");
         window.location = "/schedule"
     };
 
     function F1Live(){
-        console.log("hi");
         window.location = "/f1-live/fp1"
     };
 
     function Standings(){
-        console.log("hi");
         window.location = "/standings/drivers_champ"
     };
     
     function Information(){
-        console.log("hi");
         window.location = "/statistics/info_drivers"
     };
 

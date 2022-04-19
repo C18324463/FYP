@@ -42,27 +42,22 @@ export default function Schedule(){
     }
     
     function Home(){
-        console.log("hi");
         window.location = "/"
     };
 
     function Schedule(){
-        console.log("hi");
         window.location = "/schedule"
     };
 
     function F1Live(){
-        console.log("hi");
         window.location = "/f1-live/fp1"
     };
 
     function Standings(){
-        console.log("hi");
         window.location = "/standings/drivers_champ"
     };
 
     function Information(){
-        console.log("hi");
         window.location = "/statistics/info_drivers"
     };
 

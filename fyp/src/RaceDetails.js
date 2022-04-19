@@ -49,8 +49,6 @@ function RaceDetails(){
       fetchData();
     }, []);
 
-    console.log(schedule);
-
     for (num=0; num < schedule.MRData?.RaceTable?.Races.length; num++) {
         time_old[num] = schedule.MRData?.RaceTable?.Races[num].time;
         time_new[num] = time_old[num].slice(0, 8);
@@ -106,27 +104,22 @@ function RaceDetails(){
     }
 
     function Home(){
-        console.log("hi");
         window.location = "/"
     };
 
     function Schedule(){
-        console.log("hi");
         window.location = "/schedule"
     };
 
     function F1Live(){
-        console.log("hi");
         window.location = "/f1-live/fp1"
     };
 
     function Standings(){
-        console.log("hi");
         window.location = "/standings/drivers_champ"
     };
 
     function Information(){
-        console.log("hi");
         window.location = "/statistics/info_drivers"
     };
 

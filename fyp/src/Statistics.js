@@ -30,8 +30,6 @@ function Statistics(){
         fetchData();
 
         setTimeout (() => {
-            console.log(info);
-            console.log(x);
             for(number = 0; number < info.MRData?.DriverTable?.Drivers.length; number++) {
                 var obj = {};
                 obj.img = driver_images[number];
@@ -44,57 +42,41 @@ function Statistics(){
                 obj.permanentNumber = info.MRData?.DriverTable?.Drivers[number].permanentNumber;
                 x.push(obj);
             }
-            console.log(x);
             setAnswer(x);
         }, 1000)
-        console.log(x);
     }, []);
 
     useEffect(() => {
-        console.log(answer);
         setSearch(answer?.filter((element) => element.givenName.toLowerCase().includes(driverSearch.toLowerCase()) 
         || element.familyName.toLowerCase().includes(driverSearch.toLowerCase()) 
         || element.nationality.toLowerCase().includes(driverSearch.toLowerCase())));
     }, [driverSearch])
 
-    
-    console.log(x);
-    console.log(info);
-    console.log(search);
-    console.log(answer);
-
     function openConstructors() {
-        console.log("const");
         window.location = "/statistics/info_constructors"
     };
 
     function openTracks() {
-        console.log("const");
         window.location = "/statistics/info_tracks"
     };
 
     function Home(){
-        console.log("hi");
         window.location = "/"
     };
 
     function Schedule(){
-        console.log("hi");
         window.location = "/schedule"
     };
 
     function F1Live(){
-        console.log("hi");
         window.location = "/f1-live/fp1"
     };
 
     function Standings(){
-        console.log("hi");
         window.location = "/standings/drivers_champ"
     };
 
     function Information(){
-        console.log("hi");
         window.location = "/statistics/info_drivers"
     };
 
@@ -137,10 +119,8 @@ function Statistics(){
             <br></br>
             <div>
                 <Row>
-                    {console.log("dylan")}
                     {driverSearch ?
                         search?.map(element => {
-                            console.log("aaron");
                             counter = counter + 1;
                             return (
                                 <Col className='col-sm-3' style={{marginBottom: "20px"}}>
@@ -171,7 +151,6 @@ function Statistics(){
                         }  ) 
                         :
                         answer?.map(element => {
-                            console.log("niall");
                             counter = counter + 1;
                             return (
                                 <Col className='col-sm-3' style={{marginBottom: "20px"}}>
